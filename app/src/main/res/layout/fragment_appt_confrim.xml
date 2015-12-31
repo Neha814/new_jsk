@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--****************** address **************** -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/company_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/company_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="COMPANY"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:text="JSK Transportation"
+            android:textColor="@color/dark_text_color"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--****************** telephone **************** -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/telephone_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/telephone_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="TELEPHONE"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="9888290737"
+            android:textColor="@color/dark_text_color"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--****************** contact **************** -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/contact_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/contact_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CONTACT"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:text="Neha Bhardwaj"
+            android:textColor="@color/dark_text_color"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+    <!--****************** date / time **************** -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:weightSum="2">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/date_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/date_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="DATE"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:text="12th January, 16"
+                android:textColor="@color/dark_text_color"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/time_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/time_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="TIME"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:text="10:45 AM"
+                android:textColor="@color/dark_text_color"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/confirm_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dark_text_color"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/button_click_effect"/>
+
+        <Button
+            android:id="@+id/cancel_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dark_text_color"
+            android:text="Cancel"
+            android:layout_marginLeft="8dp"
+            android:textAllCaps="false"
+            android:background="@drawable/button_click_effect"/>
+        </LinearLayout>
+
+</LinearLayout>

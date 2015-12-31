@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/static_tv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:drawableLeft="@drawable/signup"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="SignUp as"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/cross_layout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/cross_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_popup_cross" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/static_tv"
+            android:gravity="center_vertical">
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="wrap_content"
+                android:inputType="text"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioButton_cust"
+                    android:padding="5dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/dark_text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/orange"
+                    android:text="Customer" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_vendor"
+                    android:padding="5dp"
+                    android:textSize="18dp"
+                    android:buttonTint="@color/orange"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vendor" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/ok_bt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/ll"
+
+        android:background="@drawable/button_click_effect"
+        android:text="OK"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

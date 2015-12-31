@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/welcome_img"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@drawable/ic_ripple"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/welcome_tv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:text="WELCOME"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:background="@drawable/blue_circle"
+        android:textColor="@color/white"
+        android:layout_alignTop="@+id/welcome_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
+
+    <Button
+        android:id="@+id/my_profile_bt"
+        android:layout_width="match_parent"
+        android:background="@drawable/button_click_effect"
+        android:text="My Profile"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_above="@+id/search_rate_bt"
+        android:textAllCaps="false"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/dark_text_color"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/search_rate_bt"
+        android:layout_width="match_parent"
+        android:background="@drawable/button_click_effect"
+        android:text="Search Rates"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_above="@+id/manage_work_bt"
+        android:textAllCaps="false"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/dark_text_color"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/manage_work_bt"
+        android:layout_width="match_parent"
+        android:background="@drawable/button_click_effect"
+        android:text="Manage Work Orders"
+        android:textAllCaps="false"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/dark_text_color"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:weightSum="10"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+    <ImageView
+        android:id="@+id/welcome_img"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@drawable/ic_ripple"/>
+        <TextView
+            android:id="@+id/welcome_tv"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="WELCOME"
+            android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@drawable/blue_circle"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <Button
+            android:id="@+id/my_profile_bt"
+            android:layout_width="match_parent"
+            android:background="@drawable/button_click_effect"
+            android:text="My Profile"
+            android:layout_above="@+id/manage_work_bt"
+            android:textAllCaps="false"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/dark_text_color"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/manage_work_bt"
+            android:layout_width="match_parent"
+            android:background="@drawable/button_click_effect"
+            android:text="Manage Work Orders"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/dark_text_color"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>-->

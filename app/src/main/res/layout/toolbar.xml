@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    local:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/back_layout"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_actionbar_back"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:id="@+id/edit_layout"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/edit_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_actionbar_edit"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cancel_layout"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/cancel_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_popup_cross"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>

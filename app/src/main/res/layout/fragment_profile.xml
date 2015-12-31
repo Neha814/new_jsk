@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="10"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:layout_weight="8.7">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--****************** firstname **************** -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/firstname_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/firstname_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="FIRSTNAME"
+                    android:padding="10dp"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!--****************** lastname **************** -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lastname_layout"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/lastname_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="LASTNAME"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            <!--****************** username **************** -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/username_layout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/username_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="USERNAME"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!--****************** company **************-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/company_layout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/company_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="COMPANY"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            <!--****************** mc no **************** -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/mcno_layout"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/mcno_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="MC NO"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            <!--****************** address **************** -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/address_layout"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/address_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ADDRESS"
+                    android:padding="10dp"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            <!--****************** city / state **************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/city_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/city_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="CITY"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/state_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                  <!--  <EditText
+                        android:id="@+id/state_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="STATE"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />-->
+
+                    <MultiAutoCompleteTextView
+                        android:id="@+id/state_mtv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="STATE"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+            <!--****************** country / zipcode **************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:weightSum="2">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/country_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <!--<EditText
+                        android:id="@+id/country_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="COUNTRY"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />-->
+
+                    <MultiAutoCompleteTextView
+                        android:id="@+id/country_mtv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="COUNTRY"
+                        android:completionThreshold="1"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/zipcode_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/zipcode_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ZIPCODE"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+            <!--****************** telephone/ fax **************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/telephone_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/telephone_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="TELEPHONE"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fax_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/fax_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="FAX"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/submit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:layout_weight="1.3">
+
+        <Button
+            android:id="@+id/submit_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/dark_blue_blank_box"/>
+
+    </LinearLayout>
+
+</LinearLayout>

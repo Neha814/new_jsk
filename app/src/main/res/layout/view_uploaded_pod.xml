@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="10"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_weight="2">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/search_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/search_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="SEARCH"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textSize="14dp"
+                android:text="Dummy Text"
+                android:textColor="@color/dark_text_color"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/upload_pod_bt"
+            android:layout_width="0dp"
+            android:layout_marginLeft="2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="Upload POD"
+            android:background="@drawable/dark_blue_blank_box"/>
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:layout_weight="8"/>
+
+
+</LinearLayout>
