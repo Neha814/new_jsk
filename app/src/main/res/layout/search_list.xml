@@ -49,6 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
+                android:textSize="15dp"
                 android:background="@null"
                 android:textColor="@color/grey"
                 android:text="CARGO TYPE" />
@@ -58,6 +59,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
+                android:textSize="15dp"
                 android:background="@null"
                 android:textColor="@color/grey"
                 android:text="FIND" />

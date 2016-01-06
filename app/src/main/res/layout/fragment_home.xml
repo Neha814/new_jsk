@@ -35,6 +35,7 @@
         android:layout_above="@+id/search_rate_bt"
         android:textAllCaps="false"
         android:stateListAnimator="@null"
+        android:textSize="15dp"
         android:layout_marginBottom="10dp"
         android:textColor="@color/dark_text_color"
         android:layout_height="wrap_content" />
@@ -46,6 +47,7 @@
         android:text="Search Rates"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textSize="15dp"
         android:layout_above="@+id/manage_work_bt"
         android:textAllCaps="false"
         android:stateListAnimator="@null"
@@ -59,6 +61,7 @@
         android:background="@drawable/button_click_effect"
         android:text="Manage Work Orders"
         android:textAllCaps="false"
+        android:textSize="15dp"
         android:layout_marginLeft="10dp"
         android:stateListAnimator="@null"
         android:layout_marginRight="10dp"

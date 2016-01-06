@@ -278,6 +278,7 @@
             android:text="Submit"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textSize="15dp"
             android:background="@drawable/dark_blue_blank_box"/>
 
     </LinearLayout>

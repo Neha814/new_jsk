@@ -125,6 +125,7 @@
             android:layout_weight="1"
             android:textColor="@color/dark_text_color"
             android:text="Confirm"
+            android:textSize="15dp"
             android:textAllCaps="false"
             android:layout_marginRight="8dp"
             android:background="@drawable/button_click_effect"/>
@@ -136,6 +137,7 @@
             android:layout_weight="1"
             android:textColor="@color/dark_text_color"
             android:text="Cancel"
+            android:textSize="15dp"
             android:layout_marginLeft="8dp"
             android:textAllCaps="false"
             android:background="@drawable/button_click_effect"/>
