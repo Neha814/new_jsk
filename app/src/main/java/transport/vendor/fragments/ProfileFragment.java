@@ -50,20 +50,20 @@ public class ProfileFragment extends Fragment {
 
     TextInputLayout company_layout, mcno_layout, address_layout, city_layout, state_layout,
             country_layout, zipcode_layout, telephone_layout, fax_layout, firstname_layout,
-            lastname_layout, username_layout;
+            lastname_layout, username_layout, email_layout;
 
     static EditText company_edt, mcno_edt, address_edt, city_edt, zipcode_edt,
-            telephone_edt, fax_edt, firstname_edt, lastname_edt, username_edt;
+            telephone_edt, fax_edt, firstname_edt, lastname_edt, username_edt,email_edt;
 
     static MultiAutoCompleteTextView country_mtv, state_mtv;
 
     static LinearLayout submit_layout;
 
-    static EditText[] ets = new EditText[10];
+    static EditText[] ets = new EditText[11];
 
     static MultiAutoCompleteTextView[] mtv = new MultiAutoCompleteTextView[2];
 
-    static TextInputLayout[] inputLyoutList = new TextInputLayout[12];
+    static TextInputLayout[] inputLyoutList = new TextInputLayout[13];
 
     private AsyncHttpClient client;
 
@@ -93,7 +93,7 @@ public class ProfileFragment extends Fragment {
 
     private void init() {
 
-        HomeActivity.changeTitle("My Profile", false, true);
+        HomeActivity.changeTitle("MY PROFILE", false, false);
         ctx = getActivity();
 
         client = new AsyncHttpClient();
@@ -115,6 +115,7 @@ public class ProfileFragment extends Fragment {
         firstname_layout = (TextInputLayout) rootView.findViewById(R.id.firstname_layout);
         lastname_layout = (TextInputLayout) rootView.findViewById(R.id.lastname_layout);
         username_layout = (TextInputLayout) rootView.findViewById(R.id.username_layout);
+        email_layout = (TextInputLayout) rootView.findViewById(R.id.email_layout);
         submit_layout = (LinearLayout) rootView.findViewById(R.id.submit_layout);
         scrollView = (ScrollView) rootView.findViewById(R.id.scrollView);
 
@@ -132,6 +133,7 @@ public class ProfileFragment extends Fragment {
         firstname_edt = (EditText) rootView.findViewById(R.id.firstname_edt);
         lastname_edt = (EditText) rootView.findViewById(R.id.lastname_edt);
         username_edt = (EditText) rootView.findViewById(R.id.username_edt);
+        email_edt = (EditText) rootView.findViewById(R.id.email_edt);
 
 
         ets[0] = company_edt;
@@ -145,9 +147,11 @@ public class ProfileFragment extends Fragment {
         ets[7] = firstname_edt;
         ets[8] = lastname_edt;
         ets[9] = username_edt;
+        ets[10] = email_edt;
 
         mtv[0] = country_mtv;
         mtv[1] = state_mtv;
+
 
         setTypeface();
         stopEditing();
@@ -224,13 +228,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onStart() {
                 super.onStart();
-                dialog.show();
+             //   dialog.show();
             }
 
             @Override
             public void onFinish() {
                 super.onFinish();
-                dialog.dismiss();
+             //   dialog.dismiss();
             }
 
             @Override
@@ -313,13 +317,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onStart() {
                 super.onStart();
-                dialog.show();
+               // dialog.show();
             }
 
             @Override
             public void onFinish() {
                 super.onFinish();
-                dialog.dismiss();
+               // dialog.dismiss();
             }
 
             @Override
@@ -606,25 +610,26 @@ public class ProfileFragment extends Fragment {
                         Constants.COMPANY_NAME = data.getString("CompanyName");
                         Constants.MC_NO = data.getString("mcno");
                         Constants.ADDRESS = data.getString("Address");
-                        Constants.CITY =data.getString("City");
+                        Constants.CITY = data.getString("City");
                         Constants.STATE_ID = data.getString("State");
                         Constants.ZIPCODE = data.getString("ZipCode");
                         Constants.COUNTRY_ID = data.getString("CountryID");
                         Constants.FAX = data.getString("FaxNumber");
+                        Constants.EMAIL_ID = data.getString("EmailID");
 
                     } else {
                         StringUtils.showDialog(response.getString("MessageWhatHappen"), getActivity());
                     }
 
 
-                 //   if (Constants.countryList.size() <= 0) {
-                  //      Log.e(TAG, "" + Constants.countryList);
-                        CallCountryAPI();
-                  //  }
+                    //   if (Constants.countryList.size() <= 0) {
+                    //      Log.e(TAG, "" + Constants.countryList);
+                     CallCountryAPI();
+                    //  }
 
-                //    if (Constants.stateList.size() <= 0) {
+                    //    if (Constants.stateList.size() <= 0) {
 
-                 //   }
+                    //   }
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -670,7 +675,6 @@ public class ProfileFragment extends Fragment {
         address_edt.setText(Constants.ADDRESS);
         city_edt.setText(Constants.CITY);
         state_mtv.setText(Constants.STATE);
-        Log.e(TAG,"set text country==>"+Constants.COUNTRY_NAME);
         country_mtv.setText(Constants.COUNTRY_NAME);
         zipcode_edt.setText(Constants.ZIPCODE);
         telephone_edt.setText(Constants.PHONE);
@@ -678,6 +682,7 @@ public class ProfileFragment extends Fragment {
         firstname_edt.setText(Constants.FIRSTNAME);
         lastname_edt.setText(Constants.LASTNAME);
         username_edt.setText(Constants.USERNAME);
+        email_edt.setText(Constants.EMAIL_ID);
     }
 
     /**
@@ -696,6 +701,7 @@ public class ProfileFragment extends Fragment {
         firstname_edt.setTypeface(face);
         lastname_edt.setTypeface(face);
         username_edt.setTypeface(face);
+        email_edt.setTypeface(face);
         submit_bt.setTypeface(face);
 
         inputLyoutList[0] = company_layout;
@@ -710,6 +716,7 @@ public class ProfileFragment extends Fragment {
         inputLyoutList[9] = firstname_layout;
         inputLyoutList[10] = lastname_layout;
         inputLyoutList[11] = username_layout;
+        inputLyoutList[12] = email_layout;
 
         LayFont(face, inputLyoutList);
     }
@@ -746,10 +753,15 @@ public class ProfileFragment extends Fragment {
      */
     public static void SetFocusability(boolean value, EditText et[]) {
         for (int i = 0; i < et.length; i++) {
+            Log.e(TAG, "i==" + i+" et[i]"+et[i]);
             et[i].setFocusable(value);
             et[i].setClickable(value);
             et[i].setLongClickable(value);
             et[i].setFocusableInTouchMode(value);
+
+            //et[i].setEnabled(value);
+
+
         }
     }
 
@@ -797,10 +809,12 @@ public class ProfileFragment extends Fragment {
      */
     public static void SetMtvFocusability(boolean value, MultiAutoCompleteTextView mtv[]) {
         for (int i = 0; i < mtv.length; i++) {
-            mtv[i].setFocusable(value);
+             mtv[i].setFocusable(value);
             mtv[i].setClickable(value);
             mtv[i].setLongClickable(value);
             mtv[i].setFocusableInTouchMode(value);
+
+            //mtv[i].setEnabled(value);
         }
     }
 

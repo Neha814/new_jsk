@@ -14,20 +14,23 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,8 +44,12 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -75,10 +82,13 @@ public class ViewPodFragment extends Fragment {
     ArrayList<HashMap<String, String>> PODList = new ArrayList<HashMap<String, String>>();
     private static final int GALLERY_IAMGE = 2;
     private static final int CAMERA_IMAGE = 3;
+    LinearLayout parent_layout;
 
     File imageFile;
     String imagePath;
     Uri imageUri;
+
+   // DownloadTask DownloadObj;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,7 +96,7 @@ public class ViewPodFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.view_uploaded_pod, container, false);
         face= Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("View Uploaded POD", true, false);
+        HomeActivity.changeTitle("VIEW UPLOADED POD", true, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
 
         init();
@@ -106,9 +116,16 @@ public class ViewPodFragment extends Fragment {
         listview = (ListView) rootView.findViewById(R.id.listview);
         upload_pod_bt = (Button) rootView.findViewById(R.id.upload_pod_bt);
         search_edt = (EditText) rootView.findViewById(R.id.search_edt);
+        parent_layout = (LinearLayout) rootView.findViewById(R.id.parent_layout);
 
         upload_pod_bt.setTypeface(face);
         search_edt.setTypeface(face);
+
+        if(Constants.ROLE_ID.equals("1")){
+            upload_pod_bt.setVisibility(View.VISIBLE);
+        } else if(Constants.ROLE_ID.equals("2")) {
+            upload_pod_bt.setVisibility(View.GONE);
+        }
 
         if (isConnected) {
             CallPODListingAPI();
@@ -131,50 +148,33 @@ public class ViewPodFragment extends Fragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
 
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+        wlp.gravity = Gravity.BOTTOM;
+
         Drawable d = new ColorDrawable(Color.BLACK);
         d.setAlpha(0);
         dialog.getWindow().setBackgroundDrawable(d);
-        TextView static_tv;
-        Button ok_bt, gallery_bt,camera_bt;
-        LinearLayout cross_layout;
-        ImageView cross_img;
+
+        Button cancel_bt, gallery_bt,camera_bt;
+
 
         dialog.setContentView(R.layout.pick_image_dialog);
-        static_tv = (TextView) dialog.findViewById(R.id.static_tv);
-        ok_bt = (Button) dialog.findViewById(R.id.ok_bt);
+
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
         gallery_bt = (Button) dialog.findViewById(R.id.gallery_bt);
         camera_bt = (Button) dialog.findViewById(R.id.camera_bt);
-        cross_layout = (LinearLayout) dialog.findViewById(R.id.cross_layout);
-        cross_img = (ImageView) dialog.findViewById(R.id.cross_img);
+        cancel_bt = (Button) dialog.findViewById(R.id.cancel_bt);
 
-        static_tv.setTypeface(face);
-        ok_bt.setTypeface(face);
+
         gallery_bt.setTypeface(face);
         camera_bt.setTypeface(face);
+        cancel_bt.setTypeface(face);
 
 
         dialog.show();
 
-        ok_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        cross_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        cross_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
 
         gallery_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,6 +189,13 @@ public class ViewPodFragment extends Fragment {
             public void onClick(View v) {
                 dialog.dismiss();
                 SelectImageFromCamera();
+            }
+        });
+
+        cancel_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
 
@@ -408,6 +415,16 @@ public class ViewPodFragment extends Fragment {
                 }
             });
 
+            holder.download_pod_bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = (Integer) view.getTag();
+                    String podUrl = PODList.get(pos).get("image");
+                    DownloadTask DownloadObj = new DownloadTask(podUrl);
+                    DownloadObj.execute();
+                }
+            });
+
 
             return convertView;
         }
@@ -566,11 +583,112 @@ public class ViewPodFragment extends Fragment {
                     String imagePath = Func.getRealPathFromURI(getActivity(), contentURI);
                    Bitmap bitmap = Func.resizeBitmap(imagePath);
                     String base64String = StringUtils.getBase64String(bitmap);*/
+
+                try {
                     Bitmap bitmap = Func.resizeBitmap(imagePath);
                     String base64String = StringUtils.getBase64String(bitmap);
                     uploadImageToBackend(base64String);
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
               //  }
                break;
+        }
+    }
+
+    // ****************************************** DownLoa Image **************************//
+
+    class DownloadTask extends AsyncTask<Void, Void, Void> {
+        public ProgressDialog dialog;
+        String url;
+        DownloadTask(String url)
+        {
+            this.url = url;
+            dialog = new ProgressDialog(getActivity());
+            dialog.setMessage("Downloading...");
+            dialog.setCancelable(true);
+            dialog.setIndeterminate(true);
+        }
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            dialog.dismiss();
+
+            Snackbar snackbar = Snackbar
+                    .make(parent_layout, "Download completed.", Snackbar.LENGTH_LONG);
+            snackbar.show();
+
+           // Toast.makeText(getActivity(),"Download completed.",Toast.LENGTH_SHORT).show();
+
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.show();
+        }
+        protected Void doInBackground(Void... arg0) {
+            try {
+                //set the download URL, a url that points to a file on the internet
+                //this is the file to be downloaded
+                URL url = new URL(this.url);
+
+                //create the new connection
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                //set up some things on the connection
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setDoOutput(true);
+
+                //and connect!
+                urlConnection.connect();
+
+                //set the path where we want to save the file
+                //in this case, going to save it on the root directory of the
+                //sd card.
+              //  File SDCardRoot = Environment.getExternalStorageDirectory();
+                File SDCardRoot = new File(Environment.getExternalStorageDirectory()
+                        + "/JSK");
+                //create a new file, specifying the path, and the filename
+                //which we want to save the file as.
+
+                long CurrentTimeMillis = System.currentTimeMillis();
+                File file = new File(SDCardRoot,CurrentTimeMillis+".jpg");
+
+                //this will be used to write the downloaded data into the file we created
+                FileOutputStream fileOutput = new FileOutputStream(file);
+
+                //this will be used in reading the data from the internet
+                InputStream inputStream = urlConnection.getInputStream();
+
+                //this is the total size of the file
+                int totalSize = urlConnection.getContentLength();
+                //variable to store total downloaded bytes
+                int downloadedSize = 0;
+
+                //create a buffer...
+                byte[] buffer = new byte[1024];
+                int bufferLength = 0; //used to store a temporary size of the buffer
+
+                //now, read through the input buffer and write the contents to the file
+                while ( (bufferLength = inputStream.read(buffer)) > 0 ) {
+                    //add the data in the buffer to the file in the file output stream (the file on the sd card
+                    fileOutput.write(buffer, 0, bufferLength);
+                    //add up the size so we know how much is downloaded
+                    downloadedSize += bufferLength;
+                    //this is where you would do something to report the prgress, like this maybe
+                    //updateProgress(downloadedSize, totalSize);
+
+                }
+                //close the output stream when done
+                fileOutput.close();
+
+                //catch some possible errors...
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
     }
 

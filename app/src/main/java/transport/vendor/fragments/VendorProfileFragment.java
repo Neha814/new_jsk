@@ -49,20 +49,20 @@ public class VendorProfileFragment extends Fragment {
     Button submit_bt;
 
     TextInputLayout company_layout, mcno_layout, address_layout, city_layout, state_layout,
-            country_layout, zipcode_layout, telephone_layout, fax_layout;
+            country_layout, zipcode_layout, telephone_layout, fax_layout, email_layout;
 
     static EditText company_edt, mcno_edt, address_edt, city_edt, zipcode_edt,
-            telephone_edt, fax_edt;
+            telephone_edt, fax_edt, email_edt;
 
     static MultiAutoCompleteTextView country_mtv, state_mtv;
 
     static LinearLayout submit_layout;
 
-    static EditText[] ets = new EditText[7];
+    static EditText[] ets = new EditText[8];
 
     static MultiAutoCompleteTextView[] mtv = new MultiAutoCompleteTextView[2];
 
-    static TextInputLayout[] inputLyoutList = new TextInputLayout[9];
+    static TextInputLayout[] inputLyoutList = new TextInputLayout[10];
 
     private AsyncHttpClient client;
 
@@ -92,7 +92,7 @@ public class VendorProfileFragment extends Fragment {
 
     private void init() {
 
-        HomeActivity.changeTitle("My Profile", false, true);
+        HomeActivity.changeTitle("MY PROFILE", false, false);
         ctx = getActivity();
 
         client = new AsyncHttpClient();
@@ -111,6 +111,7 @@ public class VendorProfileFragment extends Fragment {
         zipcode_layout = (TextInputLayout) rootView.findViewById(R.id.zipcode_layout);
         telephone_layout = (TextInputLayout) rootView.findViewById(R.id.telephone_layout);
         fax_layout = (TextInputLayout) rootView.findViewById(R.id.fax_layout);
+        email_layout = (TextInputLayout) rootView.findViewById(R.id.email_layout);
         submit_layout = (LinearLayout) rootView.findViewById(R.id.submit_layout);
         scrollView = (ScrollView) rootView.findViewById(R.id.scrollView);
 
@@ -125,18 +126,17 @@ public class VendorProfileFragment extends Fragment {
         zipcode_edt = (EditText) rootView.findViewById(R.id.zipcode_edt);
         telephone_edt = (EditText) rootView.findViewById(R.id.telephone_edt);
         fax_edt = (EditText) rootView.findViewById(R.id.fax_edt);
-
+        email_edt = (EditText) rootView.findViewById(R.id.email_edt);
 
 
         ets[0] = company_edt;
         ets[1] = mcno_edt;
         ets[2] = address_edt;
         ets[3] = city_edt;
-
         ets[4] = zipcode_edt;
         ets[5] = telephone_edt;
         ets[6] = fax_edt;
-
+        ets[7] = email_edt;
 
         mtv[0] = country_mtv;
         mtv[1] = state_mtv;
@@ -210,13 +210,13 @@ public class VendorProfileFragment extends Fragment {
             @Override
             public void onStart() {
                 super.onStart();
-                dialog.show();
+               // dialog.show();
             }
 
             @Override
             public void onFinish() {
                 super.onFinish();
-                dialog.dismiss();
+              //  dialog.dismiss();
             }
 
             @Override
@@ -299,13 +299,13 @@ public class VendorProfileFragment extends Fragment {
             @Override
             public void onStart() {
                 super.onStart();
-                dialog.show();
+               // dialog.show();
             }
 
             @Override
             public void onFinish() {
                 super.onFinish();
-                dialog.dismiss();
+               // dialog.dismiss();
             }
 
             @Override
@@ -577,6 +577,7 @@ public class VendorProfileFragment extends Fragment {
                         Constants.ZIPCODE = data.getString("ZipCode");
                         Constants.COUNTRY_ID = data.getString("CountryID");
                         Constants.FAX = data.getString("FaxNumber");
+                        Constants.EMAIL_ID = data.getString("EmailID");
 
                     } else {
                         StringUtils.showDialog(response.getString("MessageWhatHappen"), getActivity());
@@ -636,11 +637,12 @@ public class VendorProfileFragment extends Fragment {
         address_edt.setText(Constants.ADDRESS);
         city_edt.setText(Constants.CITY);
         state_mtv.setText(Constants.STATE);
-        Log.e(TAG,"set text country==>"+Constants.COUNTRY_NAME);
+        Log.e(TAG, "set text country==>" + Constants.COUNTRY_NAME);
         country_mtv.setText(Constants.COUNTRY_NAME);
         zipcode_edt.setText(Constants.ZIPCODE);
         telephone_edt.setText(Constants.PHONE);
         fax_edt.setText(Constants.FAX);
+        email_edt.setText(Constants.EMAIL_ID);
 
     }
 
@@ -657,6 +659,7 @@ public class VendorProfileFragment extends Fragment {
         zipcode_edt.setTypeface(face);
         telephone_edt.setTypeface(face);
         fax_edt.setTypeface(face);
+        email_edt.setTypeface(face);
         submit_bt.setTypeface(face);
 
         inputLyoutList[0] = company_layout;
@@ -668,6 +671,7 @@ public class VendorProfileFragment extends Fragment {
         inputLyoutList[6] = zipcode_layout;
         inputLyoutList[7] = telephone_layout;
         inputLyoutList[8] = fax_layout;
+        inputLyoutList[9] = email_layout;
 
 
         LayFont(face, inputLyoutList);
@@ -705,10 +709,14 @@ public class VendorProfileFragment extends Fragment {
      */
     public static void SetFocusability(boolean value, EditText et[]) {
         for (int i = 0; i < et.length; i++) {
+            Log.e(TAG, "i==" + i+" et[i]"+et[i]);
             et[i].setFocusable(value);
             et[i].setClickable(value);
             et[i].setLongClickable(value);
             et[i].setFocusableInTouchMode(value);
+
+            //et[i].setEnabled(value);
+
         }
     }
 
@@ -760,6 +768,8 @@ public class VendorProfileFragment extends Fragment {
             mtv[i].setClickable(value);
             mtv[i].setLongClickable(value);
             mtv[i].setFocusableInTouchMode(value);
+
+            //mtv[i].setEnabled(value);
         }
     }
 

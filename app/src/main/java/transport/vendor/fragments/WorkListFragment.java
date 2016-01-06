@@ -97,7 +97,7 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
         rootView = inflater.inflate(R.layout.fragment_worklist, container, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
         face = Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("Work Order List", false, false);
+        HomeActivity.changeTitle("WORK ORDER LIST", false, false);
 
         init();
 
@@ -121,7 +121,8 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
         pod_qrcode_bt.setTypeface(face);
 
         //search_edt.setText("From zipcode");
-        search_layout.setHint("SEARCH FROM WO NUMBER");
+       // search_layout.setHint("SEARCH FROM WO NUMBER");
+        search_layout.setHint("SEARCH");
         search_edt.setText("");
         pod_qrcode_bt.setText("Find");
 
@@ -244,6 +245,7 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
                             hashMap.put("Cargo_WeightTypeName", data.getJSONObject(i).getString("Cargo_WeightTypeName"));
                             hashMap.put("status", data.getJSONObject(i).getString("status"));
                             hashMap.put("PODImage", data.getJSONObject(i).getString("PODImage"));
+                            hashMap.put("ContainerID", data.getJSONObject(i).getString("ContainerID"));
 
                             workOrderList.add(hashMap);
                         }
@@ -375,22 +377,38 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
             String inputDate = workOrderList.get(position).get("Loading_Date");
 
             String dateString = StringUtils.formateDateFromstring(inputFormat,outputFormat,inputDate);
-            holder.detail1.setText((position + 1) + ". "+workOrderList.get(position).get("WO_Number")
-                    + " "+dateString + " " +
-                    workOrderList.get(position).get("ContainerTypeName"));
+            holder.detail1.setText((position + 1) + ". " + workOrderList.get(position).get("WO_Number")
+                    + " " + dateString + " " +
+                    workOrderList.get(position).get("ContainerID"));
 
-            holder.view_bt.setOnClickListener(new View.OnClickListener() {
+           /* holder.view_bt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int pos = (Integer) view.getTag();
                     String podUrl = workOrderList.get(pos).get("PODImage");
-                    if(podUrl.length()>4) {
+                    if (podUrl.length() > 4) {
                         Uri uri = Uri.parse(podUrl); // missing 'http://' will cause crashed
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     } else {
-                        StringUtils.showDialog("No POD available",getActivity());
+                        StringUtils.showDialog("No POD available", getActivity());
                     }
+                }
+            });*/
+
+            holder.view_bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = (Integer) v.getTag();
+                    String podUrl = workOrderList.get(pos).get("PODImage");
+                    if (podUrl.length() > 4) {
+                        Constants.WORK_ORDER_ID = workOrderList.get(pos).get("WorkOrderId");
+                        GoToViewPODScreen();
+                    } else {
+                        StringUtils.showDialog("No POD available", getActivity());
+                    }
+
+
                 }
             });
 
@@ -404,6 +422,21 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
             Button view_bt, track_pod_bt;
         }
 
+    }
+
+    private void GoToViewPODScreen() {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment fragment = null;
+        fragment = new ViewPodFragment();
+        if (fragment != null) {
+            ft.replace(R.id.frame_layout, fragment);
+        }
+        else {
+            ft.add(R.id.frame_layout, fragment);
+        }
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     protected void showPicImageDialog(String msg) {

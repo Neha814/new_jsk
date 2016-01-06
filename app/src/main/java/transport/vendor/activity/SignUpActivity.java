@@ -110,7 +110,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         ImageView cancel_img = (ImageView) mToolbar.findViewById(R.id.cancel_img);
         LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);
 
-        title_tv.setText("Sign Up");
+        title_tv.setText("SIGN UP");
         title_tv.setTypeface(face);
         back_layout.setVisibility(View.GONE);
         back_img.setVisibility(View.GONE);
@@ -144,12 +144,12 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
                                                  boolean isChecked) {
                         if (isChecked) {
                             isCheckboxChecked = true;
-                            agree_checkbox
-                                    .setButtonDrawable(R.drawable.ic_checkbox);
+                           /* agree_checkbox
+                                    .setButtonDrawable(R.drawable.ic_checkbox);*/
                         } else {
                             isCheckboxChecked = false;
-                            agree_checkbox
-                                    .setButtonDrawable(R.drawable.ic_box);
+                            /*agree_checkbox
+                                    .setButtonDrawable(R.drawable.ic_box);*/
                         }
 
                     }

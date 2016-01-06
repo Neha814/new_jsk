@@ -177,7 +177,6 @@
                     android:drawablePadding="-3dp"
                     android:paddingLeft="5dp"
                     android:text="I accept the "
-                    android:button="@drawable/ic_box"
                     android:textColor="@color/text_color" />
 
                 <TextView

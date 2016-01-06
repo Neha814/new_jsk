@@ -69,7 +69,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements OnClick
         ImageView cancel_img = (ImageView) mToolbar.findViewById(R.id.cancel_img);
         LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);
 
-        title_tv.setText("Forgot Password");
+        title_tv.setText("FORGOT PASSWORD");
         title_tv.setTypeface(face);
         back_layout.setVisibility(View.GONE);
         back_img.setVisibility(View.GONE);

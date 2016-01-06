@@ -34,7 +34,8 @@
         android:layout_marginRight="10dp"
         android:layout_above="@+id/search_rate_bt"
         android:textAllCaps="false"
-        android:layout_marginBottom="15dp"
+        android:stateListAnimator="@null"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/dark_text_color"
         android:layout_height="wrap_content" />
 
@@ -47,7 +48,8 @@
         android:layout_marginRight="10dp"
         android:layout_above="@+id/manage_work_bt"
         android:textAllCaps="false"
-        android:layout_marginBottom="15dp"
+        android:stateListAnimator="@null"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/dark_text_color"
         android:layout_height="wrap_content" />
 
@@ -58,6 +60,7 @@
         android:text="Manage Work Orders"
         android:textAllCaps="false"
         android:layout_marginLeft="10dp"
+        android:stateListAnimator="@null"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"

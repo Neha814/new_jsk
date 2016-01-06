@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:weightSum="10"
+    android:id="@+id/parent_layout"
     android:padding="10dp"
     android:layout_height="match_parent">
 

@@ -1,197 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:weightSum="2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/detail1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:text="wo1-load date1-container1"
+            android:textColor="@color/dark_text_color"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_signin_logo"/>
+            android:layout_weight="1">
+
+            <!-- ****** confirm ***********-->
+            <LinearLayout
+                android:id="@+id/appt_confirm_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="10"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/appt_confirm_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:stateListAnimator="@null"
+                        android:textSize="10sp"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_text_color"
+                        android:text="APPT CONFIRM"
+                        android:background="@drawable/button_click_effect_left"
+                        />
+
+                    <Button
+                        android:id="@+id/edit_view_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:padding="2dp"
+                        android:stateListAnimator="@null"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_text_color"
+                        android:text="VIEW/MOD APPT"
+                        android:background="@drawable/button_click_effect_left"
+                        />
+
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/pod_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:singleLine="true"
+                        android:padding="2dp"
+                        android:textColor="@color/dark_text_color"
+                        android:text="POD"
+                        android:stateListAnimator="@null"
+                        android:background="@drawable/button_click_effect_right"
+                        />
+
+                    <Button
+                        android:id="@+id/track_pod_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:padding="2dp"
+                        android:textSize="10sp"
+                        android:textColor="@color/dark_text_color"
+                        android:text="VIEW POD"
+                        android:stateListAnimator="@null"
+                        android:background="@drawable/button_click_effect_right"
+                        />
+
+                    </FrameLayout>
+
+
+
+            </LinearLayout>
+
+            <!--************** view ************************-->
+
+        </FrameLayout>
+
+
 
     </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="10"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="7.5"
-                android:paddingBottom="8dp"
-                android:fillViewport="true"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/name_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/name_edt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="FIRST NAME"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/lastname_layout"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/lastname_edt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="LAST NAME"
-                            android:padding="10dp"
-                            android:textColor="@color/dark_text_color"
-                            android:singleLine="true" />
-
-                    </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/email_layout"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/email_edt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="EMAIL"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/username_layout"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/username_edt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="USERNAME"
-                            android:padding="10dp"
-                            android:textColor="@color/dark_text_color"
-                            android:singleLine="true" />
-
-                    </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/password_layout"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/password_edt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="PASSWORD"
-                    android:textColor="@color/dark_text_color"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/phone_layout"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/phone_edt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="PHONE NUMBER"
-                            android:inputType="number"
-                            android:padding="10dp"
-                            android:textColor="@color/dark_text_color"
-                            android:singleLine="true" />
-
-                    </android.support.design.widget.TextInputLayout>
-                </LinearLayout>
-
-           </ScrollView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2.5"
-                android:orientation="vertical"
-                >
-
-            <Button
-                android:id="@+id/create_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="true"
-                android:text="Create"
-
-                android:textColor="@color/white"
-                android:background="@drawable/dark_blue_blank_box"
-                android:textAllCaps="false" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/static_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sign_in"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sign_in"
-                    android:textColor="@drawable/blue_selector"
-                    android:text=" Sign In"/>
-            </LinearLayout>
-                </LinearLayout>
-
-        </LinearLayout>
-
 
 </LinearLayout>

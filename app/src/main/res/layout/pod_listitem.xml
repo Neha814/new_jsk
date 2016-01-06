@@ -35,9 +35,10 @@
                 android:layout_weight="3"
                 android:textSize="12dp"
                 android:padding="2dp"
+                android:stateListAnimator="@null"
                 android:textColor="@color/dark_text_color"
                 android:text="VIEW"
-                android:background="@drawable/button_click_effect"/>
+                android:background="@drawable/button_click_effect_left"/>
 
             <Button
                 android:id="@+id/download_pod_bt"
@@ -45,10 +46,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:textSize="12dp"
+                android:stateListAnimator="@null"
                 android:padding="2dp"
                 android:textColor="@color/dark_text_color"
                 android:text="DOWNLOAD POD"
-                android:background="@drawable/button_click_effect"/>
+                android:background="@drawable/button_click_effect_right"/>
         </LinearLayout>
 
     </LinearLayout>

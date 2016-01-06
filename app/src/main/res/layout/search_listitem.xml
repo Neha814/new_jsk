@@ -31,19 +31,23 @@
                 android:id="@+id/status_bt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="7"
+                android:layout_weight="6"
                 android:textColor="@color/dark_text_color"
-                android:text="REQ WORK W/O"
-                android:background="@drawable/button_click_effect"/>
+                android:text="REQ.WO"
+                android:textSize="12sp"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_click_effect_left"/>
 
             <Button
                 android:id="@+id/route_bt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="4"
                 android:textColor="@color/dark_text_color"
                 android:text="MAP"
-                android:background="@drawable/button_click_effect"/>
+                android:textSize="12sp"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_click_effect_right"/>
         </LinearLayout>
 
     </LinearLayout>

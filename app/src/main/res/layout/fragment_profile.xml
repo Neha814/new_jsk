@@ -30,6 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="FIRSTNAME"
+                    android:nextFocusDown="@+id/lastname_edt"
                     android:padding="10dp"
                     android:inputType="textCapWords"
                     android:textColor="@color/dark_text_color"
@@ -49,6 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="LASTNAME"
+                    android:nextFocusDown="@+id/username_edt"
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:textColor="@color/dark_text_color"
@@ -67,6 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="USERNAME"
+                    android:nextFocusDown="@+id/company_edt"
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:textColor="@color/dark_text_color"
@@ -86,6 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="COMPANY"
+                    android:nextFocusDown="@+id/mcno_edt"
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:textColor="@color/dark_text_color"
@@ -104,6 +108,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="MC NO"
+                    android:nextFocusDown="@+id/address_edt"
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:textColor="@color/dark_text_color"
@@ -122,6 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="ADDRESS"
+                    android:nextFocusDown="@+id/city_edt"
                     android:padding="10dp"
                     android:inputType="textCapWords"
                     android:textColor="@color/dark_text_color"
@@ -147,6 +153,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="CITY"
+                        android:nextFocusDown="@+id/state_mtv"
                         android:inputType="textCapWords"
                         android:padding="10dp"
                         android:textColor="@color/dark_text_color"
@@ -177,8 +184,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="STATE"
+                        android:nextFocusDown="@+id/country_mtv"
                         android:inputType="textCapWords"
                         android:padding="10dp"
+                        android:imeOptions="actionNext"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true"/>
 
@@ -214,9 +223,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="COUNTRY"
+                        android:nextFocusDown="@+id/zipcode_edt"
                         android:completionThreshold="1"
                         android:inputType="textCapWords"
                         android:padding="10dp"
+                        android:imeOptions="actionNext"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true"/>
 
@@ -233,6 +244,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="ZIPCODE"
+                        android:nextFocusDown="@+id/telephone_edt"
                         android:padding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
@@ -259,6 +271,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="TELEPHONE"
+                        android:nextFocusDown="@+id/fax_edt"
                         android:inputType="number"
                         android:maxLength="10"
                         android:padding="10dp"
@@ -278,6 +291,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="FAX"
+                        android:nextFocusDown="@+id/email_edt"
                         android:inputType="textCapWords"
                         android:padding="10dp"
                         android:textColor="@color/dark_text_color"
@@ -286,6 +300,24 @@
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
+
+            <!--****************** email **************-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/email_layout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/email_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="EMAIL"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 

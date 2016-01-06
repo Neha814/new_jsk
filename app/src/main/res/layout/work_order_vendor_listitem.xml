@@ -34,64 +34,79 @@
                 android:weightSum="10"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/appt_confirm_bt"
+                <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:padding="2dp"
-                    android:textSize="12sp"
-                    android:singleLine="true"
-                    android:textColor="@color/dark_text_color"
-                    android:text="APPT CONFIRM"
-                    android:background="@drawable/button_click_effect"/>
+                    android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/pod_bt"
+                    <Button
+                        android:id="@+id/appt_confirm_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:stateListAnimator="@null"
+                        android:textSize="10sp"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_text_color"
+                        android:text="APPT CONFIRM"
+                        android:background="@drawable/button_click_effect_left"
+                        />
+
+                    <Button
+                        android:id="@+id/edit_view_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:padding="2dp"
+                        android:stateListAnimator="@null"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_text_color"
+                        android:text="VIEW/MOD APPT"
+                        android:background="@drawable/button_click_effect_left"
+                        />
+
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:textSize="12sp"
-                    android:singleLine="true"
-                    android:padding="2dp"
-                    android:textColor="@color/dark_text_color"
-                    android:text="POD"
-                    android:background="@drawable/button_click_effect"/>
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/pod_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:singleLine="true"
+                        android:padding="2dp"
+                        android:textColor="@color/dark_text_color"
+                        android:text="POD"
+                        android:stateListAnimator="@null"
+                        android:background="@drawable/button_click_effect_right"
+                        />
+
+                    <Button
+                        android:id="@+id/track_pod_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:padding="2dp"
+                        android:textSize="10sp"
+                        android:textColor="@color/dark_text_color"
+                        android:text="VIEW POD"
+                        android:stateListAnimator="@null"
+                        android:background="@drawable/button_click_effect_right"
+                        />
+
+                </FrameLayout>
+
+
+
             </LinearLayout>
 
             <!--************** view ************************-->
 
-            <LinearLayout
-                android:id="@+id/appt_view_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="10"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/edit_view_bt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:textSize="12sp"
-                    android:padding="2dp"
-                    android:singleLine="true"
-                    android:textColor="@color/dark_text_color"
-                    android:text="EDIT/VIEW APPT"
-                    android:background="@drawable/button_click_effect"/>
-
-                <Button
-                    android:id="@+id/track_pod_bt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:singleLine="true"
-                    android:padding="2dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/dark_text_color"
-                    android:text="VIEW POD"
-                    android:background="@drawable/button_click_effect"/>
-            </LinearLayout>
         </FrameLayout>
 
 

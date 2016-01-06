@@ -150,6 +150,7 @@ public class StringUtils {
 		String inputFormat ="yyyy-mm-dd" ;
 		String outputFormat = "dd MMM yyyy";
 		String inputDate = date;
+		Constants.DATE_TO_SEND = inputFormat;
 		Constants.DATE = formateDateFromstring(inputFormat,outputFormat,inputDate);
 	}
 

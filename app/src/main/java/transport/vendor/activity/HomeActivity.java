@@ -2,6 +2,7 @@ package transport.vendor.activity;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -48,6 +49,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private AsyncHttpClient client;
     private ProgressDialog dialog;
     boolean isConnected;
+    static Context ctx ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         e.putBoolean("inHome",true);
         e.commit();
 
+        ctx = HomeActivity.this;
         initialize();
     }
 
@@ -92,13 +95,30 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         logout_tv = (TextView) findViewById(R.id.logout_tv);
 
 
-        home_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+        home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
         worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
         profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
         logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
 
+        home_tv.setTextColor(getResources().getColor(R.color.white));
+        worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+        profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+        logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
 
-        title_tv.setText("Home");
+        Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home_white);
+        home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_white_icon, null, null);
+
+        Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
+        worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+        Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+        profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+        Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+        logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
+
+
+        title_tv.setText("HOME");
         title_tv.setTypeface(face);
         home_tv.setTypeface(face);
         worklist_tv.setTypeface(face);
@@ -115,10 +135,15 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         logout_tv.setOnClickListener(this);
         back_img.setOnClickListener(this);
         back_layout.setOnClickListener(this);
-        edit_img.setOnClickListener(this);
+       /* edit_img.setOnClickListener(this);
         edit_layout.setOnClickListener(this);
         cancel_img.setOnClickListener(this);
-        cancel_layout.setOnClickListener(this);
+        cancel_layout.setOnClickListener(this);*/
+
+        edit_img.setVisibility(View.GONE);
+        edit_layout.setVisibility(View.GONE);
+        cancel_img.setVisibility(View.GONE);
+        cancel_layout.setVisibility(View.GONE);
 
         home_tv.setEnabled(false);
 
@@ -143,10 +168,28 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if (v == home_tv) {
-            home_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+            home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
             worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
             profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+            home_tv.setTextColor(getResources().getColor(R.color.white));
+            worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+
+            Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home_white);
+            home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_white_icon, null, null);
+
+            Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
+            worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+            Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+            profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+            Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+            logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
+
 
             Fragment fragment = new HomeFragment();
             CallFragment(fragment);
@@ -161,9 +204,27 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         }
         if (v == worklist_tv) {
             home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            worklist_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
             profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+            home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            worklist_tv.setTextColor(getResources().getColor(R.color.white));
+            profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+
+            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home);
+            home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
+
+            Drawable worklist_icon_white = getResources().getDrawable(R.drawable.ic_optionmenu_worklist_white);
+            worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon_white, null, null);
+
+            Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+            profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+            Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+            logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
+
 
             if(Constants.ROLE_ID.equals("2")) {
                 Fragment fragment = new WorkListFragment();
@@ -184,13 +245,30 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         if (v == profile_tv) {
             home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
             worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            profile_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+            profile_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
             logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+            home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            profile_tv.setTextColor(getResources().getColor(R.color.white));
+            logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+
+            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home);
+            home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
+
+            Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
+            worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+            Drawable profile_icon_white = getResources().getDrawable(R.drawable.ic_optionmenu_profile_white);
+            profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon_white, null, null);
+
+            Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+            logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
 
             if(Constants.ROLE_ID.equals("2")){
                 Fragment fragment = new ProfileFragment();
                 CallFragment(fragment);
-            } else {
+            } else if(Constants.ROLE_ID.equals("1")){
                 Fragment fragment = new VendorProfileFragment();
                 CallFragment(fragment);
             }
@@ -209,7 +287,24 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
             worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
             profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            logout_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+            logout_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+
+            home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            logout_tv.setTextColor(getResources().getColor(R.color.white));
+
+            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home);
+            home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
+
+            Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
+            worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+            Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+            profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+            Drawable logout_icon_white = getResources().getDrawable(R.drawable.ic_optionmenu_logout_white);
+            logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon_white, null, null);
 
             home_tv.setEnabled(true);
             worklist_tv.setEnabled(true);
@@ -256,8 +351,26 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     public static void ChangeProfileColor() {
         home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
         worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-        profile_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+        profile_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
         logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+
+        home_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
+        worklist_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
+        profile_tv.setTextColor(ctx.getResources().getColor(R.color.white));
+        logout_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
+
+        Drawable home_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_home);
+        home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
+
+        Drawable worklist_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
+        worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+        Drawable profile_icon_white = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_profile_white);
+        profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon_white, null, null);
+
+        Drawable logout_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+        logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
 
         home_tv.setEnabled(true);
         worklist_tv.setEnabled(true);
@@ -267,9 +380,26 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     public static void ChangeManageWorkOrderColor() {
         home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-        worklist_tv.setBackgroundColor(Color.parseColor("#ff8b3b"));
+        worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
         profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
         logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+        home_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
+        worklist_tv.setTextColor(ctx.getResources().getColor(R.color.white));
+        profile_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
+        logout_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
+
+        Drawable home_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_home);
+        home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
+
+        Drawable worklist_icon_white = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_worklist_white);
+        worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon_white, null, null);
+
+        Drawable profile_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+        profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+        Drawable logout_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+        logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
 
         home_tv.setEnabled(true);
         worklist_tv.setEnabled(false);

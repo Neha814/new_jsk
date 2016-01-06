@@ -65,7 +65,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
         rootView = inflater.inflate(R.layout.search_list, container, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
         face = Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("Search Rates", true, false);
+        HomeActivity.changeTitle("SEARCH RATES", true, false);
 
         init();
 

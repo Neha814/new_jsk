@@ -25,15 +25,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -101,7 +101,7 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
         rootView = inflater.inflate(R.layout.fragment_worklist, container, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
         face = Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("Work Order List", false, false);
+        HomeActivity.changeTitle("WORK ORDER LIST", false, false);
 
         init();
 
@@ -124,7 +124,8 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
         search_edt.setTypeface(face);
         pod_qrcode_bt.setTypeface(face);
 
-        search_layout.setHint("SEARCH FROM WO NUMBER");
+       // search_layout.setHint("SEARCH FROM WO NUMBER");
+        search_layout.setHint("SEARCH");
         search_edt.setText("");
 
         pod_qrcode_bt.setOnClickListener(this);
@@ -232,6 +233,7 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
                             hashMap.put("status", data.getJSONObject(i).getString("status"));
                             hashMap.put("PODImage", data.getJSONObject(i).getString("PODImage"));
                             hashMap.put("POD_status", data.getJSONObject(i).getString("POD_status"));
+                            hashMap.put("ContainerID", data.getJSONObject(i).getString("ContainerID"));
 
                             workOrderList.add(hashMap);
                         }
@@ -341,8 +343,6 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
                 holder.detail1 = (TextView) convertView.findViewById(R.id.detail1);
                 holder.appt_confirm_bt = (Button) convertView.findViewById(R.id.appt_confirm_bt);
                 holder.pod_bt = (Button) convertView.findViewById(R.id.pod_bt);
-                holder.appt_confirm_layout = (LinearLayout) convertView.findViewById(R.id.appt_confirm_layout);
-                holder.appt_view_layout = (LinearLayout) convertView.findViewById(R.id.appt_view_layout);
                 holder.edit_view_bt = (Button) convertView.findViewById(R.id.edit_view_bt);
                 holder.track_pod_bt = (Button) convertView.findViewById(R.id.track_pod_bt);
 
@@ -363,11 +363,15 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
               /*  holder.appt_view_layout.setVisibility(View.VISIBLE);
                 holder.appt_confirm_layout.setVisibility(View.GONE);*/
 
+                Log.e("edit Appt","edit Appt ps="+position);
+
                 holder.appt_confirm_bt.setVisibility(View.GONE);
                 holder.edit_view_bt.setVisibility(View.VISIBLE);
 
             }
             else if(workOrderList.get(position).get("status").equals("0")){
+
+                Log.e("Appt confirm","Appt confirm ps="+position);
 
                 holder.appt_confirm_bt.setVisibility(View.VISIBLE);
                 holder.edit_view_bt.setVisibility(View.GONE);
@@ -379,11 +383,15 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
               /*  holder.appt_view_layout.setVisibility(View.VISIBLE);
                 holder.appt_confirm_layout.setVisibility(View.GONE);*/
 
+                Log.e("view pod","view pod ps="+position);
+
                 holder.pod_bt.setVisibility(View.GONE);
                 holder.track_pod_bt.setVisibility(View.VISIBLE);
 
             }
             else if(workOrderList.get(position).get("POD_status").equals("0")){
+
+                Log.e("pod","pod ps="+position);
 
                 holder.pod_bt.setVisibility(View.VISIBLE);
                 holder.track_pod_bt.setVisibility(View.GONE);
@@ -401,7 +409,7 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
             String dateString = StringUtils.formateDateFromstring(inputFormat,outputFormat, inputDate);
             holder.detail1.setText((position + 1) + ". "+workOrderList.get(position).get("WO_Number")
                     + " "+dateString + " " +
-                    workOrderList.get(position).get("ContainerTypeName"));
+                    workOrderList.get(position).get("ContainerID"));
 
 
             holder.appt_confirm_bt.setOnClickListener(new View.OnClickListener() {
@@ -471,7 +479,6 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
         class ViewHolder {
             TextView detail1;
             Button appt_confirm_bt, pod_bt,edit_view_bt,track_pod_bt;
-            LinearLayout appt_confirm_layout, appt_view_layout;
         }
 
     }
@@ -498,50 +505,31 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
 
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+        wlp.gravity = Gravity.BOTTOM;
+
         Drawable d = new ColorDrawable(Color.BLACK);
         d.setAlpha(0);
         dialog.getWindow().setBackgroundDrawable(d);
-        TextView static_tv;
-        Button ok_bt, gallery_bt,camera_bt;
-        LinearLayout cross_layout;
-        ImageView cross_img;
+
+        Button gallery_bt,camera_bt,cancel_bt;
+
 
         dialog.setContentView(R.layout.pick_image_dialog);
-        static_tv = (TextView) dialog.findViewById(R.id.static_tv);
-        ok_bt = (Button) dialog.findViewById(R.id.ok_bt);
+
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
         gallery_bt = (Button) dialog.findViewById(R.id.gallery_bt);
         camera_bt = (Button) dialog.findViewById(R.id.camera_bt);
-        cross_layout = (LinearLayout) dialog.findViewById(R.id.cross_layout);
-        cross_img = (ImageView) dialog.findViewById(R.id.cross_img);
+        cancel_bt = (Button) dialog.findViewById(R.id.cancel_bt);
 
-        static_tv.setTypeface(face);
-        ok_bt.setTypeface(face);
         gallery_bt.setTypeface(face);
         camera_bt.setTypeface(face);
-
+        cancel_bt.setTypeface(face);
 
         dialog.show();
 
-        ok_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        cross_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        cross_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
 
         gallery_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -556,6 +544,12 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
             public void onClick(View v) {
                 dialog.dismiss();
                 SelectImageFromCamera();
+            }
+        });
+        cancel_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
 
@@ -691,10 +685,15 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
                     String base64String = StringUtils.getBase64String(thumbnail);
                     uploadImageToBackend(base64String);
                 }*/
+                try {
                 Bitmap bitmap = Func.resizeBitmap(imagePath);
                 String base64String = StringUtils.getBase64String(bitmap);
                 uploadImageToBackend(base64String);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
                 break;
+
         }
     }
 

@@ -76,7 +76,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         ImageView cancel_img = (ImageView) mToolbar.findViewById(R.id.cancel_img);
         LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);
 
-        title_tv.setText("Login");
+        title_tv.setText("SIGN IN");
         title_tv.setTypeface(face);
         back_layout.setVisibility(View.GONE);
         back_img.setVisibility(View.GONE);

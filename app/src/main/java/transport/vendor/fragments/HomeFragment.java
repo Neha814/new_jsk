@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         anim = AnimationUtils.loadAnimation(getActivity(), R.anim.zoom_in);
         welcome_img.startAnimation(anim);
 
-        HomeActivity.changeTitle("Home", false,false);
+        HomeActivity.changeTitle("HOME", false,false);
 
         welcome_tv.setTypeface(face);
         my_profile_bt.setTypeface(face);

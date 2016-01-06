@@ -67,7 +67,7 @@ public class ViewMapFragment extends Fragment {
             return rootView;
         }
         face= Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("Route", true, false);
+        HomeActivity.changeTitle("ROUTE", true, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
 
         init();

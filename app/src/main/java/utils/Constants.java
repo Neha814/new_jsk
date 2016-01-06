@@ -44,6 +44,7 @@ public class Constants {
     public static String COUNTRY_ID;
     public static String COUNTRY_NAME;
     public static String FAX;
+    public static String EMAIL_ID;
     public static ArrayList<HashMap<String , String>> countryList = new ArrayList<HashMap<String , String>>();
     public static ArrayList<HashMap<String , String>> stateList = new ArrayList<HashMap<String , String>>();
 
@@ -62,6 +63,7 @@ public class Constants {
     public static String CONFIRM_APPT = BASE_URL +"Confirm_Appt.php";
     public static String CUST_SEARCH_RATE = BASE_URL+"CustomerSearchRates.php";
     public static String POD_IMAGES_LIST = BASE_URL+"ListPodImages.php";
+    public static String CANCEL_APPT = BASE_URL +"Confirm_Appt.php";
 
     // **************** work order list appt detail *********************//
 
@@ -69,6 +71,7 @@ public class Constants {
     public static String TELEPHONE ;
     public static String CONTACT;
     public static String DATE;
+    public static String DATE_TO_SEND;
     public static String TIME ;
     public static String WORKORDER_ID;
     public static String EMAIL;
