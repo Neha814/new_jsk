@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
@@ -30,7 +29,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -76,8 +74,8 @@ public class ViewPodFragment extends Fragment {
     Boolean isConnected;
     ListView listview;
     Button upload_pod_bt;
-    EditText search_edt;
-    TextInputLayout search_layout;
+    //EditText search_edt;
+    //TextInputLayout search_layout;
     MyAdapter mAdapter;
     ArrayList<HashMap<String, String>> PODList = new ArrayList<HashMap<String, String>>();
     private static final int GALLERY_IAMGE = 2;
@@ -112,14 +110,11 @@ public class ViewPodFragment extends Fragment {
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
 
-        search_layout = (TextInputLayout) rootView.findViewById(R.id.search_layout);
         listview = (ListView) rootView.findViewById(R.id.listview);
         upload_pod_bt = (Button) rootView.findViewById(R.id.upload_pod_bt);
-        search_edt = (EditText) rootView.findViewById(R.id.search_edt);
         parent_layout = (LinearLayout) rootView.findViewById(R.id.parent_layout);
 
         upload_pod_bt.setTypeface(face);
-        search_edt.setTypeface(face);
 
         if(Constants.ROLE_ID.equals("1")){
             upload_pod_bt.setVisibility(View.VISIBLE);

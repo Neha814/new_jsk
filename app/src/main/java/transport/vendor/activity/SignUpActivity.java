@@ -47,11 +47,11 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
     Typeface face;
     EditText name_edt, email_edt,
-            phone_edt, company_edt, lastname_edt;
+            phone_edt, company_edt, lastname_edt, username_edt;
     TextView static_text, sign_in;
     Button create_btn;
     TextInputLayout name_layout, email_layout,
-            lastname_layout, company_layout, phone_layout;
+            lastname_layout, company_layout, phone_layout,username_layout;
     Boolean isConnected;
     private AsyncHttpClient SignUpClient;
     private ProgressDialog dialog;
@@ -83,7 +83,6 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
         name_edt = (EditText) findViewById(R.id.name_edt);
         email_edt = (EditText) findViewById(R.id.email_edt);
-     //   password_edt = (EditText) findViewById(R.id.password_edt);
         phone_edt = (EditText) findViewById(R.id.phone_edt);
         company_edt = (EditText) findViewById(R.id.company_edt);
         lastname_edt = (EditText) findViewById(R.id.lastname_edt);
@@ -92,13 +91,14 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         create_btn = (Button) findViewById(R.id.create_btn);
         name_layout = (TextInputLayout) findViewById(R.id.name_layout);
         email_layout = (TextInputLayout) findViewById(R.id.email_layout);
-    //    password_layout = (TextInputLayout) findViewById(R.id.password_layout);
         lastname_layout = (TextInputLayout) findViewById(R.id.lastname_layout);
         company_layout = (TextInputLayout) findViewById(R.id.company_layout);
         phone_layout = (TextInputLayout) findViewById(R.id.phone_layout);
         phone_edt = (EditText) findViewById(R.id.phone_edt);
         terms_tv = (TextView) findViewById(R.id.terms_tv);
         agree_checkbox = (CheckBox) findViewById(R.id.agree_checkbox);
+        username_edt = (EditText) findViewById(R.id.username_edt);
+        username_layout = (TextInputLayout) findViewById(R.id.username_layout);
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         //  Func.set_title_to_actionbar("Register", this, mToolbar, false);
@@ -130,6 +130,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         lastname_edt.setTypeface(face);
         agree_checkbox.setTypeface(face);
         terms_tv.setTypeface(face);
+        username_edt.setTypeface(face);
 
         sign_in.setOnClickListener(this);
         back_img.setOnClickListener(this);
@@ -241,10 +242,10 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
                         String firstname = StringUtils.getString(name_edt);
                         String lastname = StringUtils.getString(lastname_edt);
                         String email = StringUtils.getString(email_edt);
-                        String username = StringUtils.getString(company_edt);
-                 //       String password = StringUtils.getString(password_edt);
+                        String companyName = StringUtils.getString(company_edt);
+                          String username = StringUtils.getString(username_edt);
                         String phonenumber = StringUtils.getString(phone_edt);
-                        CallSignUpAPI(firstname, lastname, email, username, phonenumber);
+                        CallSignUpAPI(firstname, lastname, email, companyName, phonenumber,username);
                     } else {
                         StringUtils.showDialog(Constants.NO_INTERNET, SignUpActivity.this);
                     }
@@ -280,7 +281,13 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         } else if (Func.editSize(lastname_edt) <= 0) {
             lastname_layout.setError("Please enter Lastname");
             lastname_edt.requestFocus();
-        } else if (Func.editSize(name_edt) <= 0) {
+        }
+        else if (Func.editSize(username_edt) <= 0) {
+            username_layout.setError("Please enter Username");
+            username_edt.requestFocus();
+        }
+
+        else if (Func.editSize(name_edt) <= 0) {
             email_layout.setError("Please enter email address");
             email_edt.requestFocus();
         } else if (!Func.isValidEmail(email_edt.getText())) {
@@ -315,7 +322,8 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
-    private void CallSignUpAPI(String firstname, String lastname, String email, String username, String phoneno) {
+    private void CallSignUpAPI(String firstname, String lastname, String email, String companyName, String phoneno,
+                               String username) {
        // http://phphosting.osvin.net/JSKT/API/SignUp.php?firstname=Ekam&lastname=Kaur&
         // email=ekamkaur56312@gmail.com&username=EkamKaur&phone=9876543210&roleid=1&
         // company_name=Test company
@@ -324,10 +332,10 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         params.put("firstname", firstname);
         params.put("lastname", lastname);
         params.put("email", email);
-        params.put("username", "");
+        params.put("username", username);
         params.put("phone", phoneno);
         params.put("roleid", Constants.ROLE_ID_TO_SEND);
-        params.put("company_name", username);
+        params.put("company_name", companyName);
 
         Log.e("parameters", params.toString());
         Log.e("URL", Constants.SIGNUP_URL + "?" + params.toString());

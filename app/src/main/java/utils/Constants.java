@@ -63,7 +63,7 @@ public class Constants {
     public static String CONFIRM_APPT = BASE_URL +"Confirm_Appt.php";
     public static String CUST_SEARCH_RATE = BASE_URL+"CustomerSearchRates.php";
     public static String POD_IMAGES_LIST = BASE_URL+"ListPodImages.php";
-    public static String CANCEL_APPT = BASE_URL +"Confirm_Appt.php";
+    public static String CANCEL_APPT = BASE_URL +"confirm_delete.php";
 
     // **************** work order list appt detail *********************//
 

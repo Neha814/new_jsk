@@ -9,74 +9,92 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_signin_logo"/>
-
-    </LinearLayout>
-
-    <ScrollView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none">
+        android:background="@drawable/bg"
+        android:alpha="0.3"
+        android:layout_height="match_parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/static_text"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
-                android:padding="10dp"
-                android:textColor="@color/text_color"
                 android:layout_height="wrap_content"
-                android:text="@string/forgot_pass_static_text"/>
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/email_layout"
-                android:layout_marginTop="20dp"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_signin_logo"/>
+
+            </LinearLayout>
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
 
-                <EditText
-                    android:id="@+id/email_edt"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="EMAIL"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-            </android.support.design.widget.TextInputLayout>
+                    <TextView
+                        android:id="@+id/static_text"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:textColor="@color/text_color"
+                        android:layout_height="wrap_content"
+                        android:text="@string/forgot_pass_static_text"/>
 
-            <Button
-                android:id="@+id/forgot_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="true"
-                android:textSize="15dp"
-                android:text="Request Reset Link"
-                android:layout_marginTop="30dp"
-                android:textColor="@color/white"
-                android:background="@drawable/dark_blue_blank_box"
-                android:textAllCaps="false" />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/email_layout"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/email_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="EMAIL"
+                            android:inputType="textEmailAddress"
+                            android:padding="10dp"
+                            android:textColor="@color/dark_text_color"
+                            android:singleLine="true" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/forgot_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="true"
+                        android:textSize="15dp"
+                        android:text="Request Reset Link"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/dark_blue_blank_box"
+                        android:textAllCaps="false" />
 
 
+                </LinearLayout>
+
+            </ScrollView>
         </LinearLayout>
+    </FrameLayout>
 
-    </ScrollView>
+
 </LinearLayout>

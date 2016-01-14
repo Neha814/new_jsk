@@ -2,114 +2,445 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:weightSum="10"
+    android:background="#AA000000"
+
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/detail1"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textSize="12sp"
-            android:text="wo1-load date1-container1"
-            android:textColor="@color/dark_text_color"
-            android:layout_height="wrap_content" />
-
-        <FrameLayout
-            android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:layout_weight="8.7">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:orientation="vertical">
 
-            <!-- ****** confirm ***********-->
+            <!--****************** firstname **************** -->
+
             <LinearLayout
-                android:id="@+id/appt_confirm_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="10"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="6"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/firstname_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <Button
-                        android:id="@+id/appt_confirm_bt"
+                    <EditText
+                        android:id="@+id/firstname_edt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="2dp"
-                        android:stateListAnimator="@null"
-                        android:textSize="10sp"
-                        android:singleLine="true"
+                        android:hint="FIRSTNAME"
+                        android:background="@null"
+                        android:nextFocusDown="@+id/lastname_edt"
+                        android:padding="10dp"
+                        android:inputType="textCapWords"
                         android:textColor="@color/dark_text_color"
-                        android:text="APPT CONFIRM"
-                        android:background="@drawable/button_click_effect_left"
-                        />
+                        android:singleLine="true" />
 
-                    <Button
-                        android:id="@+id/edit_view_bt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="10sp"
-                        android:padding="2dp"
-                        android:stateListAnimator="@null"
-                        android:singleLine="true"
-                        android:textColor="@color/dark_text_color"
-                        android:text="VIEW/MOD APPT"
-                        android:background="@drawable/button_click_effect_left"
-                        />
-
-                </FrameLayout>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
 
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="4"
+            <!--****************** lastname **************** -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#40ffffff"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lastname_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/lastname_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="LASTNAME"
+                    android:background="@null"
+                    android:nextFocusDown="@+id/username_edt"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <!--****************** username **************** -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#40ffffff"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/username_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/username_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="USERNAME"
+                    android:background="@null"
+                    android:nextFocusDown="@+id/company_edt"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <!--****************** company **************-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#40ffffff"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/company_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/company_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="COMPANY"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_company"
+                    android:drawablePadding="10dp"
+                    android:nextFocusDown="@+id/mcno_edt"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <!--****************** mc no **************** -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#40ffffff"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/mcno_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/mcno_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="MC NO"
+                    android:drawableLeft="@drawable/ic_mc_number"
+                    android:drawablePadding="10dp"
+                    android:nextFocusDown="@+id/address_edt"
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:background="@null"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <!--****************** address **************** -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#40ffffff"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/address_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/address_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ADDRESS"
+                    android:drawableLeft="@drawable/ic_address"
+                    android:drawablePadding="10dp"
+                    android:nextFocusDown="@+id/city_edt"
+                    android:padding="10dp"
+                    android:background="@null"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <!--****************** city / state **************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/city_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <Button
-                        android:id="@+id/pod_bt"
+                    <EditText
+                        android:id="@+id/city_edt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10sp"
-                        android:singleLine="true"
-                        android:padding="2dp"
+                        android:hint="CITY"
+                        android:nextFocusDown="@+id/state_mtv"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_city"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
-                        android:text="POD"
-                        android:stateListAnimator="@null"
-                        android:background="@drawable/button_click_effect_right"
-                        />
+                        android:singleLine="true" />
 
-                    <Button
-                        android:id="@+id/track_pod_bt"
+
+
+                </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/state_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--  <EditText
+                          android:id="@+id/state_edt"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:hint="STATE"
+                          android:inputType="textCapWords"
+                          android:padding="10dp"
+                          android:textColor="@color/dark_text_color"
+                          android:singleLine="true" />-->
+
+                    <MultiAutoCompleteTextView
+                        android:id="@+id/state_mtv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
-                        android:padding="2dp"
-                        android:textSize="10sp"
+                        android:hint="STATE"
+                        android:drawableLeft="@drawable/ic_state"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/country_mtv"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:background="@null"
+                        android:imeOptions="actionNext"
                         android:textColor="@color/dark_text_color"
-                        android:text="VIEW POD"
-                        android:stateListAnimator="@null"
-                        android:background="@drawable/button_click_effect_right"
-                        />
+                        android:singleLine="true"/>
 
-                    </FrameLayout>
+                </android.support.design.widget.TextInputLayout>
 
+            </LinearLayout>
+            <!--****************** country / zipcode **************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
 
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/country_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--<EditText
+                        android:id="@+id/country_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="COUNTRY"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />-->
+
+                    <MultiAutoCompleteTextView
+                        android:id="@+id/country_mtv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="COUNTRY"
+                        android:drawableLeft="@drawable/ic_country"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/zipcode_edt"
+                        android:completionThreshold="1"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:background="@null"
+                        android:imeOptions="actionNext"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/zipcode_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/zipcode_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ZIPCODE"
+                        android:drawableLeft="@drawable/ic_zipcode"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/telephone_edt"
+                        android:padding="10dp"
+                        android:background="@null"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+            <!--****************** telephone/ fax **************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/telephone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/telephone_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="TELEPHONE"
+                        android:nextFocusDown="@+id/fax_edt"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fax_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/fax_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="FAX"
+                        android:drawableLeft="@drawable/ic_fax"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/email_edt"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:background="@null"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
-            <!--************** view ************************-->
+            <!--****************** email **************-->
 
-        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#40ffffff"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/email_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/email_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="EMAIL"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_email"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_text_color"
+                    android:singleLine="true" />
 
+            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/submit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:layout_weight="1.3">
+
+        <Button
+            android:id="@+id/submit_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textSize="15dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/dark_blue_blank_box"/>
 
     </LinearLayout>
 

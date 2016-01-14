@@ -16,6 +16,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_appicon"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
 
 
@@ -36,7 +37,6 @@
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -53,7 +53,7 @@
             android:label="SignUpActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name="transport.vendor.activity.HomeActivity"
+            android:name=".HomeActivity"
             android:label="HomeActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <!--

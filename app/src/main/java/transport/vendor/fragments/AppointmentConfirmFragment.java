@@ -69,7 +69,7 @@ public class AppointmentConfirmFragment extends Fragment {
         if(Constants.CONFIRM_STATUS.equals("0")) {
             HomeActivity.changeTitle("APPOINTMENT CONFIRM", true, false);
         } else if(Constants.CONFIRM_STATUS.equals("1")){
-            HomeActivity.changeTitle("VIEW/MODIFY APPOINTMENT", true,false);
+            HomeActivity.changeTitle("VIEW/MODIFY APPOINTMENT", true, false);
         }
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
 
@@ -360,11 +360,10 @@ public class AppointmentConfirmFragment extends Fragment {
     }
 
     private void CallCancelAPI() {
-        /*http://phphosting.osvin.net/JSKT/API/Confirm_Appt.php?workorderid=1&companyname=TEST&
-         contactname=testing&date=10/12/2015&time=12:00:15&phone=9875641230&email=test@gmail.com*/
+        /*http://phphosting.osvin.net/JSKT/API/confirm_delete.php?WorkOrder_ID=1*/
 
         RequestParams params = new RequestParams();
-        params.put("workorderid",Constants.WORKORDER_ID);
+        params.put("WorkOrder_ID",Constants.WORKORDER_ID);
 
 
         Log.e("parameters", params.toString());
@@ -390,9 +389,9 @@ public class AppointmentConfirmFragment extends Fragment {
                 try {
                     Log.e("onsuccess", response.toString());
                     if (response.getBoolean("ResponseCode")) {
-                        showDialog(response.getString("MessageWhatHappen"), getActivity());
+                        showDialog(response.getString("Message"), getActivity());
                     } else {
-                        showDialog(response.getString("MessageWhatHappen"), getActivity());
+                        showDialog(response.getString("Message"), getActivity());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

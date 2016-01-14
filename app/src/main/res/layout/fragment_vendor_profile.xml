@@ -31,6 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="COMPANY"
+                    android:drawableLeft="@drawable/ic_company"
+                    android:drawablePadding="10dp"
                     android:nextFocusDown="@+id/mcno_edt"
                     android:inputType="textCapWords"
                     android:padding="10dp"
@@ -50,6 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="MC NO"
+                    android:drawableLeft="@drawable/ic_mc_number"
+                    android:drawablePadding="10dp"
                     android:nextFocusDown="@+id/address_edt"
                     android:inputType="textCapWords"
                     android:padding="10dp"
@@ -69,6 +73,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="ADDRESS"
+                    android:drawableLeft="@drawable/ic_address"
+                    android:drawablePadding="10dp"
                     android:padding="10dp"
                     android:nextFocusDown="@+id/city_edt"
                     android:inputType="textCapWords"
@@ -95,6 +101,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="CITY"
+                        android:drawableLeft="@drawable/ic_city"
+                        android:drawablePadding="10dp"
                         android:nextFocusDown="@+id/state_mtv"
                         android:inputType="textCapWords"
                         android:padding="10dp"
@@ -130,6 +138,8 @@
                         android:nextFocusDown="@+id/country_mtv"
                         android:inputType="textCapWords"
                         android:padding="10dp"
+                        android:drawableLeft="@drawable/ic_state"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true"/>
 
@@ -170,6 +180,8 @@
                         android:completionThreshold="1"
                         android:inputType="textCapWords"
                         android:padding="10dp"
+                        android:drawableLeft="@drawable/ic_country"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true"/>
 
@@ -188,6 +200,8 @@
                         android:hint="ZIPCODE"
                         android:nextFocusDown="@+id/telephone_edt"
                         android:padding="10dp"
+                        android:drawableLeft="@drawable/ic_zipcode"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
 
@@ -215,6 +229,8 @@
                         android:hint="TELEPHONE"
                         android:nextFocusDown="@+id/fax_edt"
                         android:padding="10dp"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
 
@@ -231,6 +247,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="FAX"
+                        android:drawableLeft="@drawable/ic_fax"
+                        android:drawablePadding="10dp"
                         android:nextFocusDown="@+id/email_edt"
                         android:inputType="textCapWords"
                         android:padding="10dp"
@@ -252,9 +270,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="EMAIL"
+                    android:drawableLeft="@drawable/ic_email"
+                    android:drawablePadding="10dp"
                     android:padding="10dp"
                     android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:singleLine="true"/>
 
             </android.support.design.widget.TextInputLayout>
 

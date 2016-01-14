@@ -141,10 +141,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         if (Func.editSize(email_edt) <= 0) {
             email_layout.setError("Please enter email");
             email_edt.requestFocus();
-        } else if (!Func.isValidEmail(email_edt.getText())) {
+        }
+        /*else if (!Func.isValidEmail(email_edt.getText())) {
             email_layout.setError("Please enter valid email");
             email_edt.requestFocus();
-        } else if (Func.editSize(password_edt) <= 0) {
+        } */
+        else if (Func.editSize(password_edt) <= 0) {
             password_layout.setError("Please enter password");
             password_edt.requestFocus();
         } else {
@@ -197,9 +199,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                         e.putString("role_id", role_id);
                         e.commit();
 
-                        Intent in = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(in);
-                        finish();
+
+                            Intent in = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(in);
+                            finish();
+
+
 
                     } else {
                         StringUtils.showDialog(response.getString("MessageWhatHappen"), LoginActivity.this);

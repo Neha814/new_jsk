@@ -76,7 +76,8 @@ public class ProfileFragment extends Fragment {
     static ScrollView scrollView;
 
     static Context ctx;
-    //  MyAdapter mAdapter;
+
+    LinearLayout mc_layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,6 +119,7 @@ public class ProfileFragment extends Fragment {
         email_layout = (TextInputLayout) rootView.findViewById(R.id.email_layout);
         submit_layout = (LinearLayout) rootView.findViewById(R.id.submit_layout);
         scrollView = (ScrollView) rootView.findViewById(R.id.scrollView);
+        mc_layout = (LinearLayout) rootView.findViewById(R.id.mc_layout);
 
         submit_bt = (Button) rootView.findViewById(R.id.submit_bt);
 
@@ -135,6 +137,10 @@ public class ProfileFragment extends Fragment {
         username_edt = (EditText) rootView.findViewById(R.id.username_edt);
         email_edt = (EditText) rootView.findViewById(R.id.email_edt);
 
+        mcno_layout.setVisibility(View.GONE);
+        mcno_edt.setVisibility(View.GONE);
+        mc_layout.setVisibility(View.GONE);
+
 
         ets[0] = company_edt;
         ets[1] = mcno_edt;
@@ -151,6 +157,18 @@ public class ProfileFragment extends Fragment {
 
         mtv[0] = country_mtv;
         mtv[1] = state_mtv;
+
+        if(Constants.ROLE_ID.equals("1")){
+            // vendor
+            mcno_layout.setVisibility(View.VISIBLE);
+            mcno_edt.setVisibility(View.VISIBLE);
+            mc_layout.setVisibility(View.VISIBLE);
+        } else if(Constants.ROLE_ID.equals("2")){
+            // customer
+            mcno_layout.setVisibility(View.GONE);
+            mcno_edt.setVisibility(View.GONE);
+            mc_layout.setVisibility(View.GONE);
+        }
 
 
         setTypeface();

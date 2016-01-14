@@ -20,132 +20,190 @@
             android:orientation="vertical">
 
             <!--****************** firstname **************** -->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/firstname_layout"
+
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/firstname_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/firstname_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="FIRSTNAME"
-                    android:nextFocusDown="@+id/lastname_edt"
-                    android:padding="10dp"
-                    android:inputType="textCapWords"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/firstname_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="FIRSTNAME"
+                        android:drawableLeft="@drawable/ic_user"
+                        android:drawablePadding="10dp"
+                        android:background="@null"
+                        android:nextFocusDown="@+id/lastname_edt"
+                        android:inputType="textCapWords"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
 
             <!--****************** lastname **************** -->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/lastname_layout"
-                android:layout_marginTop="10dp"
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/lastname_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/lastname_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="LASTNAME"
-                    android:nextFocusDown="@+id/username_edt"
-                    android:inputType="textCapWords"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/lastname_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="LASTNAME"
+                        android:drawableLeft="@drawable/ic_user"
+                        android:drawablePadding="10dp"
+                        android:background="@null"
+                        android:nextFocusDown="@+id/username_edt"
+                        android:inputType="textCapWords"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--****************** username **************** -->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/username_layout"
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/username_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/username_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="USERNAME"
-                    android:nextFocusDown="@+id/company_edt"
-                    android:inputType="textCapWords"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/username_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="USERNAME"
+                        android:drawableLeft="@drawable/ic_user"
+                        android:drawablePadding="10dp"
+                        android:background="@null"
+                        android:nextFocusDown="@+id/company_edt"
+                        android:inputType="textCapWords"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
             <!--****************** company **************-->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/company_layout"
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/company_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/company_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="COMPANY"
-                    android:nextFocusDown="@+id/mcno_edt"
-                    android:inputType="textCapWords"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/company_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="COMPANY"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_company"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/mcno_edt"
+                        android:inputType="textCapWords"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--****************** mc no **************** -->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/mcno_layout"
-                android:layout_marginTop="10dp"
+            <LinearLayout
+                android:id="@+id/mc_layout"
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/mcno_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/mcno_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="MC NO"
-                    android:nextFocusDown="@+id/address_edt"
-                    android:inputType="textCapWords"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/mcno_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="MC NO"
+                        android:drawableLeft="@drawable/ic_mc_number"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/address_edt"
+                        android:inputType="textCapWords"
+                        android:background="@null"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--****************** address **************** -->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/address_layout"
-                android:layout_marginTop="10dp"
+
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/address_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/address_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="ADDRESS"
-                    android:nextFocusDown="@+id/city_edt"
-                    android:padding="10dp"
-                    android:inputType="textCapWords"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/address_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ADDRESS"
+                        android:drawableLeft="@drawable/ic_address"
+                        android:drawablePadding="10dp"
+                        android:nextFocusDown="@+id/city_edt"
+                        android:background="@null"
+                        android:inputType="textCapWords"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--****************** city / state **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/city_layout"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
@@ -155,38 +213,50 @@
                         android:hint="CITY"
                         android:nextFocusDown="@+id/state_mtv"
                         android:inputType="textCapWords"
-                        android:padding="10dp"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_city"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
 
 
 
                 </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/state_layout"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                  <!--  <EditText
-                        android:id="@+id/state_edt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="STATE"
-                        android:inputType="textCapWords"
-                        android:padding="10dp"
-                        android:textColor="@color/dark_text_color"
-                        android:singleLine="true" />-->
+                    <!--  <EditText
+                          android:id="@+id/state_edt"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:hint="STATE"
+                          android:inputType="textCapWords"
+                          android:padding="10dp"
+                          android:textColor="@color/dark_text_color"
+                          android:singleLine="true" />-->
 
                     <MultiAutoCompleteTextView
                         android:id="@+id/state_mtv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="STATE"
+                        android:drawableLeft="@drawable/ic_state"
+                        android:drawablePadding="10dp"
                         android:nextFocusDown="@+id/country_mtv"
                         android:inputType="textCapWords"
-                        android:padding="10dp"
+                        android:background="@null"
                         android:imeOptions="actionNext"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true"/>
@@ -197,15 +267,15 @@
             <!--****************** country / zipcode **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/country_layout"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <!--<EditText
@@ -223,20 +293,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="COUNTRY"
+                        android:drawableLeft="@drawable/ic_country"
+                        android:drawablePadding="10dp"
                         android:nextFocusDown="@+id/zipcode_edt"
                         android:completionThreshold="1"
                         android:inputType="textCapWords"
-                        android:padding="10dp"
+                        android:background="@null"
                         android:imeOptions="actionNext"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true"/>
 
                 </android.support.design.widget.TextInputLayout>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/zipcode_layout"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
@@ -244,8 +325,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="ZIPCODE"
+                        android:drawableLeft="@drawable/ic_zipcode"
+                        android:drawablePadding="10dp"
                         android:nextFocusDown="@+id/telephone_edt"
-                        android:padding="10dp"
+                        android:background="@null"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
 
@@ -255,15 +338,15 @@
             <!--****************** telephone/ fax **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/telephone_layout"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
@@ -274,16 +357,26 @@
                         android:nextFocusDown="@+id/fax_edt"
                         android:inputType="number"
                         android:maxLength="10"
-                        android:padding="10dp"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:drawablePadding="10dp"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/fax_layout"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
@@ -291,9 +384,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="FAX"
+                        android:drawableLeft="@drawable/ic_fax"
+                        android:drawablePadding="10dp"
                         android:nextFocusDown="@+id/email_edt"
                         android:inputType="textCapWords"
-                        android:padding="10dp"
+                        android:background="@null"
                         android:textColor="@color/dark_text_color"
                         android:singleLine="true" />
 
@@ -302,22 +397,32 @@
             </LinearLayout>
 
             <!--****************** email **************-->
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/email_layout"
+
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#40ffffff"
+                android:padding="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/email_edt"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/email_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="EMAIL"
-                    android:padding="10dp"
-                    android:textColor="@color/dark_text_color"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/email_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="EMAIL"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:drawablePadding="10dp"
+                        android:textColor="@color/dark_text_color"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
         </LinearLayout>
 

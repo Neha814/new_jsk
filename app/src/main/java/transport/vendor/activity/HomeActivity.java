@@ -27,9 +27,8 @@ import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 
-import transport.vendor.fragments.HomeFragment;
+import transport.vendor.fragments.CustomerSearchRates;
 import transport.vendor.fragments.ProfileFragment;
-import transport.vendor.fragments.VendorProfileFragment;
 import transport.vendor.fragments.WorkListFragment;
 import transport.vendor.fragments.WorkListVendorFragment;
 import utils.Constants;
@@ -50,6 +49,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private ProgressDialog dialog;
     boolean isConnected;
     static Context ctx ;
+    LinearLayout linear_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,33 +89,15 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);
 
 
+
         home_tv = (TextView) findViewById(R.id.home_tv);
         worklist_tv = (TextView) findViewById(R.id.worklist_tv);
         profile_tv = (TextView) findViewById(R.id.profile_tv);
         logout_tv = (TextView) findViewById(R.id.logout_tv);
+        linear_layout = (LinearLayout) findViewById(R.id.linear_layout);
 
 
-        home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
-        worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-        profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-        logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
 
-        home_tv.setTextColor(getResources().getColor(R.color.white));
-        worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
-        profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
-        logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
-
-        Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home_white);
-        home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_white_icon, null, null);
-
-        Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
-        worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
-
-        Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
-        profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
-
-        Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
-        logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
 
 
         title_tv.setText("HOME");
@@ -148,14 +130,74 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         home_tv.setEnabled(false);
 
         // Add initial fragment
-        addInitialFragment();
+
+
+
+        if(Constants.ROLE_ID.equals("2")){
+            // customer weight=4
+            Fragment fragment = null;
+            fragment = new CustomerSearchRates();
+            addInitialFragment(fragment);
+
+            home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+
+            home_tv.setTextColor(getResources().getColor(R.color.white));
+            worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+
+            Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_search_white);
+            home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_white_icon, null, null);
+
+            Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
+            worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+            Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+            profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+            Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+            logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
+
+        } else if(Constants.ROLE_ID.equals("1")){
+            // vendor weight = 3
+            home_tv.setVisibility(View.GONE);
+
+            Fragment fragment = null;
+            fragment = new WorkListVendorFragment();
+            addInitialFragment(fragment);
+
+            home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+
+            home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            worklist_tv.setTextColor(getResources().getColor(R.color.white));
+            profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+            logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
+
+            Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_search);
+            home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_white_icon, null, null);
+
+            Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist_white);
+            worklist_tv.setCompoundDrawablesWithIntrinsicBounds(null, worklist_icon, null, null);
+
+            Drawable profile_icon = getResources().getDrawable(R.drawable.ic_optionmenu_profile);
+            profile_tv.setCompoundDrawablesWithIntrinsicBounds(null, profile_icon, null, null);
+
+            Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
+            logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
+        }
     }
 
-    private void addInitialFragment() {
+    private void addInitialFragment(Fragment f) {
         FragmentManager fm = this.getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        Fragment fragment = null;
-        fragment = new HomeFragment();
+        Fragment fragment = f;
+
         if (fragment != null) {
             ft.replace(R.id.frame_layout, fragment);
         } else {
@@ -169,16 +211,16 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View v) {
         if (v == home_tv) {
             home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
-            worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
             home_tv.setTextColor(getResources().getColor(R.color.white));
             worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
 
-            Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home_white);
+            Drawable home_white_icon = getResources().getDrawable(R.drawable.ic_optionmenu_search_white);
             home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_white_icon, null, null);
 
             Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
@@ -191,7 +233,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
 
 
-            Fragment fragment = new HomeFragment();
+            Fragment fragment = new CustomerSearchRates();
             CallFragment(fragment);
 
             home_tv.setEnabled(false);
@@ -203,17 +245,17 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             cancel_layout.setVisibility(View.GONE);
         }
         if (v == worklist_tv) {
-            home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+            home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
-            profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+            profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
             home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             worklist_tv.setTextColor(getResources().getColor(R.color.white));
             profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
 
-            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home);
+            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_search);
             home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
 
             Drawable worklist_icon_white = getResources().getDrawable(R.drawable.ic_optionmenu_worklist_white);
@@ -243,17 +285,17 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             cancel_layout.setVisibility(View.GONE);
         }
         if (v == profile_tv) {
-            home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+            home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             profile_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
-            logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+            logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
             home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             profile_tv.setTextColor(getResources().getColor(R.color.white));
             logout_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
 
-            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home);
+            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_search);
             home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
 
             Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
@@ -265,13 +307,13 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             Drawable logout_icon = getResources().getDrawable(R.drawable.ic_optionmenu_logout);
             logout_tv.setCompoundDrawablesWithIntrinsicBounds(null, logout_icon, null, null);
 
-            if(Constants.ROLE_ID.equals("2")){
+           // if(Constants.ROLE_ID.equals("2")){
                 Fragment fragment = new ProfileFragment();
                 CallFragment(fragment);
-            } else if(Constants.ROLE_ID.equals("1")){
+           /* } else if(Constants.ROLE_ID.equals("1")){
                 Fragment fragment = new VendorProfileFragment();
                 CallFragment(fragment);
-            }
+            }*/
 
 
 
@@ -284,9 +326,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             cancel_layout.setVisibility(View.GONE);
         }
         if (v == logout_tv) {
-            home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-            profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+            home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+            profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
 
             home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
@@ -294,7 +336,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             profile_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             logout_tv.setTextColor(getResources().getColor(R.color.white));
 
-            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_home);
+            Drawable home_icon = getResources().getDrawable(R.drawable.ic_optionmenu_search);
             home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
 
             Drawable worklist_icon = getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
@@ -349,10 +391,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
 
     public static void ChangeProfileColor() {
-        home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-        worklist_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+        home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+        worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
         profile_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
-        logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+        logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
 
         home_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
@@ -360,7 +402,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         profile_tv.setTextColor(ctx.getResources().getColor(R.color.white));
         logout_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
 
-        Drawable home_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_home);
+        Drawable home_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_search);
         home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
 
         Drawable worklist_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_worklist);
@@ -379,17 +421,17 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     }
 
     public static void ChangeManageWorkOrderColor() {
-        home_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+        home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
         worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
-        profile_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
-        logout_tv.setBackgroundColor(Color.parseColor("#00ffffff"));
+        profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
+        logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
         home_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
         worklist_tv.setTextColor(ctx.getResources().getColor(R.color.white));
         profile_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
         logout_tv.setTextColor(ctx.getResources().getColor(R.color.dark_text_color));
 
-        Drawable home_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_home);
+        Drawable home_icon = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_search);
         home_tv.setCompoundDrawablesWithIntrinsicBounds(null, home_icon, null, null);
 
         Drawable worklist_icon_white = ctx.getResources().getDrawable(R.drawable.ic_optionmenu_worklist_white);

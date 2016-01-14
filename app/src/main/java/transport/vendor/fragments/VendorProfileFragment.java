@@ -141,6 +141,16 @@ public class VendorProfileFragment extends Fragment {
         mtv[0] = country_mtv;
         mtv[1] = state_mtv;
 
+        if(Constants.ROLE_ID.equals("1")){
+            // vendor
+            mcno_layout.setVisibility(View.VISIBLE);
+            mcno_edt.setVisibility(View.VISIBLE);
+        } else if(Constants.ROLE_ID.equals("2")){
+            // customer
+            mcno_layout.setVisibility(View.GONE);
+            mcno_edt.setVisibility(View.GONE);
+        }
+
         setTypeface();
         stopEditing();
 

@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -57,6 +58,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
     Button cargo_bt;
     Button find_bt;
     ListView listview;
+    TextInputLayout search_layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,6 +87,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
         cargo_bt = (Button) rootView.findViewById(R.id.cargo_bt);
         find_bt = (Button) rootView.findViewById(R.id.find_bt);
         listview = (ListView) rootView.findViewById(R.id.listview);
+        search_layout = (TextInputLayout) rootView.findViewById(R.id.search_layout);
 
         search_edt.setTypeface(face);
         cargo_bt.setTypeface(face);
@@ -96,6 +99,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
             StringUtils.showDialog(Constants.NO_INTERNET, getActivity());
         }
 
+        search_layout.setHint("SEARCH FROM ZIPCODE");
         search_edt.setText("");
 
         search_edt.addTextChangedListener(new TextWatcher() {
@@ -309,7 +313,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
             holder.route_bt.setTag(position);
 
             holder.detail1.setText(searchList.get(position).get("Origin_ZipCode") + " - " +
-                    searchList.get(position).get("Dest_ZipCode") + " - " +
+                    searchList.get(position).get("Dest_ZipCode") + " - $ " +
                     searchList.get(position).get("Rate45FT"));
 
             holder.route_bt.setOnClickListener(new View.OnClickListener() {

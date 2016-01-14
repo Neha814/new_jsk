@@ -125,7 +125,7 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
         pod_qrcode_bt.setTypeface(face);
 
        // search_layout.setHint("SEARCH FROM WO NUMBER");
-        search_layout.setHint("SEARCH");
+        search_layout.setHint("SEARCH FROM WO NUMBER");
         search_edt.setText("");
 
         pod_qrcode_bt.setOnClickListener(this);
@@ -620,6 +620,9 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
                 if (resultCode == getActivity().RESULT_OK) {
                     String contents = data.getStringExtra(ZBarConstants.SCAN_RESULT);
                     Toast.makeText(getActivity(), contents, Toast.LENGTH_LONG).show();
+                    Log.e("scan result==>",""+contents);
+                    Constants.WORKORDER_ID = contents;
+                    showPicImageDialog("Select image from");
 
                 } else if (resultCode == getActivity().RESULT_CANCELED && data != null) {
                     String error = data.getStringExtra(ZBarConstants.ERROR_INFO);
@@ -706,7 +709,8 @@ public class WorkListVendorFragment extends Fragment implements View.OnClickList
         params.put("podimage", Base64String);
         params.put("workorderid", Constants.WORKORDER_ID);
 
-        Log.e("parameters", params.toString());
+       // Log.e("parameters", params.toString());
+        Log.e("workorderid===>", ""+Constants.WORKORDER_ID);
         Log.e("URL", Constants.UPLOAD_POD_IMAGE + "?" + params.toString());
         client.post(getActivity(), Constants.UPLOAD_POD_IMAGE, params, new JsonHttpResponseHandler() {
 

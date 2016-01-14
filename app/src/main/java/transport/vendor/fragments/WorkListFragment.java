@@ -20,8 +20,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,7 +64,7 @@ import utils.StringUtils;
 /**
  * Created by bharat on 12/22/15.
  */
-public class WorkListFragment extends Fragment implements View.OnClickListener {
+public class WorkListFragment extends Fragment {
 
 
     // ********************* customer ******************************//
@@ -122,11 +120,31 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
 
         //search_edt.setText("From zipcode");
        // search_layout.setHint("SEARCH FROM WO NUMBER");
-        search_layout.setHint("SEARCH");
+
+        search_layout.setHint("SEARCH FROM WO NUMBER");
         search_edt.setText("");
+
         pod_qrcode_bt.setText("Find");
 
-        pod_qrcode_bt.setOnClickListener(this);
+
+        pod_qrcode_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String text = search_edt.getText().toString()
+                            .toLowerCase(Locale.getDefault());
+                    if(text.trim().length()>0){
+                        search_layout.setError(null);
+                        mAdapter.filter(text);
+                    }
+                    else if(text.trim().length()==0){
+                        mAdapter.filter("");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         if (isConnected) {
             CallWorkListAPI();
@@ -135,14 +153,6 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == pod_qrcode_bt) {
-            //ScanBarcode();
-            FindFromList();
-
-        }
-    }
 
     private void FindFromList() {
         String text = search_edt.getText().toString()
@@ -152,7 +162,7 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
        /* }else {
             search_layout.setError("Please enter WO number");
         }*/
-        search_edt.addTextChangedListener(new TextWatcher() {
+        /*search_edt.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -182,7 +192,7 @@ public class WorkListFragment extends Fragment implements View.OnClickListener {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
     }
 
     private void ScanBarcode() {
