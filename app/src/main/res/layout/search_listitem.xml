@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#40ffffff"
+    android:background="@color/new_grey"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:paddingLeft="5dp"
@@ -40,8 +40,8 @@
                 android:textColor="@color/dark_text_color"
                 android:text="REQ.WO"
                 android:textSize="12sp"
-                android:stateListAnimator="@null"
-                android:background="@drawable/button_click_effect_left"/>
+                android:layout_marginRight="2dp"
+                />
 
             <Button
                 android:id="@+id/route_bt"
@@ -51,8 +51,8 @@
                 android:textColor="@color/dark_text_color"
                 android:text="MAP"
                 android:textSize="12sp"
-                android:stateListAnimator="@null"
-                android:background="@drawable/button_click_effect_right"/>
+                android:layout_marginLeft="2dp"
+               />
         </LinearLayout>
 
     </LinearLayout>

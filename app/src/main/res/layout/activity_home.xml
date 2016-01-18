@@ -20,8 +20,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:background="#000000"
-                android:alpha="0.2"
+                android:background="#ffffff"
                 android:layout_height="match_parent" />
 
             <LinearLayout

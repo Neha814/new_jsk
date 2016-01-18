@@ -15,8 +15,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:background="@drawable/bg"
-        android:alpha="0.3"
+        android:background="#ffffff"
         android:layout_height="match_parent" />
 
         <LinearLayout
@@ -80,13 +79,13 @@
                     <Button
                         android:id="@+id/forgot_button"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:enabled="true"
                         android:textSize="15dp"
                         android:text="Request Reset Link"
                         android:layout_marginTop="30dp"
                         android:textColor="@color/white"
-                        android:background="@drawable/dark_blue_blank_box"
+                        android:background="@drawable/blue_click_effect"
                         android:textAllCaps="false" />
 
 

@@ -67,7 +67,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
         rootView = inflater.inflate(R.layout.search_list, container, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
         face = Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("SEARCH RATES", true, false);
+        HomeActivity.changeTitle("SEARCH RATES", false, false);
 
         init();
 
@@ -291,12 +291,18 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
 
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = mInflater.inflate(R.layout.search_listitem,
+                convertView = mInflater.inflate(R.layout.new_searchlistitem,
                         null);
 
-                holder.detail1 = (TextView) convertView.findViewById(R.id.detail1);
+                holder.source_zipcode = (TextView) convertView.findViewById(R.id.source_zipcode);
+                holder.destination_zipcode = (TextView) convertView.findViewById(R.id.destination_zipcode);
+                holder.price = (TextView) convertView.findViewById(R.id.price);
                 holder.status_bt = (Button) convertView.findViewById(R.id.status_bt);
                 holder.route_bt = (Button) convertView.findViewById(R.id.route_bt);
+                holder.source_city = (TextView) convertView.findViewById(R.id.source_city);
+                holder.destination_city = (TextView) convertView.findViewById(R.id.destination_city);
+                holder.availability = (TextView) convertView.findViewById(R.id.availability);
+                holder.terms_condition = (TextView) convertView.findViewById(R.id.terms_condition);
 
                 convertView.setTag(holder);
 
@@ -304,17 +310,28 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.detail1.setTypeface(face);
+            holder.destination_zipcode.setTypeface(face);
+            holder.source_zipcode.setTypeface(face);
             holder.status_bt.setTypeface(face);
             holder.route_bt.setTypeface(face);
+            holder.source_city.setTypeface(face);
+            holder.destination_city.setTypeface(face);
+            holder.availability.setTypeface(face);
+            holder.terms_condition.setTypeface(face);
 
 
             holder.status_bt.setTag(position);
             holder.route_bt.setTag(position);
 
-            holder.detail1.setText(searchList.get(position).get("Origin_ZipCode") + " - " +
+          /*  holder.detail1.setText(searchList.get(position).get("Origin_ZipCode") + " - " +
                     searchList.get(position).get("Dest_ZipCode") + " - $ " +
-                    searchList.get(position).get("Rate45FT"));
+                    searchList.get(position).get("Rate45FT"));*/
+
+            holder.destination_zipcode.setText(searchList.get(position).get("Dest_ZipCode"));
+            holder.source_zipcode.setText(searchList.get(position).get("Origin_ZipCode"));
+            holder.source_city.setText(searchList.get(position).get("Origin_City"));
+            holder.destination_city.setText(searchList.get(position).get("Dest_City"));
+            holder.price.setText("$ "+searchList.get(position).get("Rate45FT"));
 
             holder.route_bt.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -344,7 +361,8 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
         }
 
         class ViewHolder {
-            TextView detail1;
+            TextView source_zipcode, destination_zipcode, price,source_city,destination_city,
+                    availability, terms_condition;
             Button status_bt, route_bt;
         }
 

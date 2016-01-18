@@ -139,7 +139,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             fragment = new CustomerSearchRates();
             addInitialFragment(fragment);
 
-            home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            home_tv.setBackgroundColor(Color.parseColor("#0176d9"));
             worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
@@ -170,7 +170,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             addInitialFragment(fragment);
 
             home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
-            worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#0176d9"));
             profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
@@ -210,7 +210,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if (v == home_tv) {
-            home_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            home_tv.setBackgroundColor(Color.parseColor("#0176d9"));
             worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
@@ -246,7 +246,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         }
         if (v == worklist_tv) {
             home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
-            worklist_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            worklist_tv.setBackgroundColor(Color.parseColor("#0176d9"));
             profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
@@ -269,9 +269,11 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
 
             if(Constants.ROLE_ID.equals("2")) {
+                // customer = 2
                 Fragment fragment = new WorkListFragment();
                 CallFragment(fragment);
             } else {
+                // vendor = 1
                 Fragment fragment = new WorkListVendorFragment();
                 CallFragment(fragment);
             }
@@ -287,7 +289,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         if (v == profile_tv) {
             home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
-            profile_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            profile_tv.setBackgroundColor(Color.parseColor("#0176d9"));
             logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
             home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
@@ -329,7 +331,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
             profile_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
-            logout_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+            logout_tv.setBackgroundColor(Color.parseColor("#0176d9"));
 
             home_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
             worklist_tv.setTextColor(getResources().getColor(R.color.dark_text_color));
@@ -393,7 +395,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     public static void ChangeProfileColor() {
         home_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
         worklist_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
-        profile_tv.setBackgroundColor(Color.parseColor("#ff8a3c"));
+        profile_tv.setBackgroundColor(Color.parseColor("#0176d9"));
         logout_tv.setBackgroundColor(Color.parseColor("#40ffffff"));
 
 

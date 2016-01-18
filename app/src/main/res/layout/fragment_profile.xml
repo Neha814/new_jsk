@@ -23,7 +23,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_height="wrap_content">
@@ -37,6 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="FIRSTNAME"
+                        android:gravity="center_vertical"
                         android:drawableLeft="@drawable/ic_user"
                         android:drawablePadding="10dp"
                         android:background="@null"
@@ -52,7 +53,7 @@
             <!--****************** lastname **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -80,7 +81,7 @@
             <!--****************** username **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -109,7 +110,7 @@
             <!--****************** company **************-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -138,7 +139,7 @@
             <LinearLayout
                 android:id="@+id/mc_layout"
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -167,7 +168,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -195,7 +196,7 @@
             <!--****************** city / state **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -226,7 +227,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -267,7 +268,7 @@
             <!--****************** country / zipcode **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -309,7 +310,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -338,7 +339,7 @@
             <!--****************** telephone/ fax **************** -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -368,7 +369,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"
@@ -400,7 +401,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#40ffffff"
+                android:background="#f3f4f4"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="10dp"

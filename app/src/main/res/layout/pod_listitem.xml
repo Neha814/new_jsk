@@ -2,6 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/new_grey"
+    android:paddingTop="15dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingBottom="15dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/detail1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="wo1-load date1-container1"
+            android:textColor="@color/dark_text_color"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/view_bt"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/blue_click_effect"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/white"
+            android:text="VIEW POD"
+            android:textSize="15dp"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/download_pod_bt"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/blue_click_effect"
+            android:textColor="@color/white"
+            android:text="DOWNLOAD POD"
+            android:layout_marginLeft="8dp"
+            android:textSize="15dp"
+            android:gravity="center"  />
+    </LinearLayout>
+
+
+</LinearLayout>
+    <!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:background="#40ffffff"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
@@ -40,10 +104,11 @@
                 android:layout_weight="3"
                 android:textSize="12dp"
                 android:padding="2dp"
+                android:layout_marginRight="2dp"
                 android:stateListAnimator="@null"
                 android:textColor="@color/dark_text_color"
                 android:text="VIEW"
-                android:background="@drawable/button_click_effect_left"/>
+                android:background="@drawable/new_button_click"/>
 
             <Button
                 android:id="@+id/download_pod_bt"
@@ -51,13 +116,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:textSize="12dp"
+                android:layout_marginLeft="2dp"
                 android:stateListAnimator="@null"
                 android:padding="2dp"
                 android:textColor="@color/dark_text_color"
                 android:text="DOWNLOAD POD"
-                android:background="@drawable/button_click_effect_right"/>
+                android:background="@drawable/new_button_click"/>
         </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
+-->

@@ -38,12 +38,12 @@
             android:id="@+id/pod_qrcode_bt"
             android:layout_width="0dp"
             android:layout_marginLeft="2dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="0.8"
             android:textSize="12dp"
             android:textColor="@color/white"
             android:text="POD FROM QRCODE"
-            android:background="@drawable/dark_blue_blank_box"/>
+            android:background="@drawable/blue_click_effect"/>
 
     </LinearLayout>
     <ListView

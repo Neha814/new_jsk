@@ -365,9 +365,12 @@ public class WorkListFragment extends Fragment {
                 convertView = mInflater.inflate(R.layout.work_order_listitem,
                         null);
 
-                holder.detail1 = (TextView) convertView.findViewById(R.id.detail1);
+              //  holder.detail1 = (TextView) convertView.findViewById(R.id.detail1);
                 holder.view_bt = (Button) convertView.findViewById(R.id.view_bt);
                 holder.track_pod_bt = (Button) convertView.findViewById(R.id.track_pod_bt);
+                holder.wo_tv = (TextView) convertView.findViewById(R.id.wo_tv);
+                holder.date_tv = (TextView) convertView.findViewById(R.id.date_tv);
+                holder.container_tv = (TextView) convertView.findViewById(R.id.container_tv);
 
                 convertView.setTag(holder);
 
@@ -375,7 +378,9 @@ public class WorkListFragment extends Fragment {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.detail1.setTypeface(face);
+            holder.wo_tv.setTypeface(face);
+            holder.date_tv.setTypeface(face);
+            holder.container_tv.setTypeface(face);
             holder.view_bt.setTypeface(face);
             holder.track_pod_bt.setTypeface(face);
 
@@ -387,9 +392,13 @@ public class WorkListFragment extends Fragment {
             String inputDate = workOrderList.get(position).get("Loading_Date");
 
             String dateString = StringUtils.formateDateFromstring(inputFormat,outputFormat,inputDate);
-            holder.detail1.setText((position + 1) + ". " + workOrderList.get(position).get("WO_Number")
-                    + " " + dateString + " " +
-                    workOrderList.get(position).get("ContainerID"));
+//            holder.detail1.setText((position + 1) + ". " + workOrderList.get(position).get("WO_Number")
+//                    + " " + dateString + " " +
+//                    workOrderList.get(position).get("ContainerID"));
+
+            holder.wo_tv.setText(workOrderList.get(position).get("WO_Number"));
+            holder.date_tv.setText(dateString);
+            holder.container_tv.setText(workOrderList.get(position).get("ContainerID"));
 
            /* holder.view_bt.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -428,7 +437,8 @@ public class WorkListFragment extends Fragment {
 
 
         class ViewHolder {
-            TextView detail1;
+           // TextView detail1;
+            TextView wo_tv, date_tv, container_tv;
             Button view_bt, track_pod_bt;
         }
 
