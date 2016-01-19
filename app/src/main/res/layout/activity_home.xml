@@ -84,7 +84,7 @@
                         android:layout_height="match_parent"
                         android:text="MY PROFILE"/>
 
-                    <TextView
+                  <!--  <TextView
                         android:id="@+id/logout_tv"
                         android:layout_width="0dp"
                         android:layout_weight="1"
@@ -92,7 +92,7 @@
                         android:drawableTop="@drawable/ic_optionmenu_logout"
                         android:textColor="@color/dark_text_color"
                         android:layout_height="match_parent"
-                        android:text="LOGOUT"/>
+                        android:text="LOGOUT"/>-->
 
 
 

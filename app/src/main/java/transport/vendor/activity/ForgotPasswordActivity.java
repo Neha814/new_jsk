@@ -64,19 +64,20 @@ public class ForgotPasswordActivity extends AppCompatActivity implements OnClick
         LinearLayout back_layout = (LinearLayout) mToolbar.findViewById(R.id.back_layout);
         TextView title_tv = (TextView) mToolbar.findViewById(R.id.title_tv);
         ImageView back_img = (ImageView) mToolbar.findViewById(R.id.back_img);
-        ImageView edit_img = (ImageView) mToolbar.findViewById(R.id.edit_img);
+      /*  ImageView edit_img = (ImageView) mToolbar.findViewById(R.id.edit_img);
         LinearLayout edit_layout = (LinearLayout) mToolbar.findViewById(R.id.edit_layout);
         ImageView cancel_img = (ImageView) mToolbar.findViewById(R.id.cancel_img);
-        LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);
+        LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);*/
+        TextView logout_img = (TextView) mToolbar.findViewById(R.id.logout_img);
+        LinearLayout logout_layout = (LinearLayout) mToolbar.findViewById(R.id.logout_layout);
 
         title_tv.setText("FORGOT PASSWORD");
         title_tv.setTypeface(face);
         back_layout.setVisibility(View.GONE);
         back_img.setVisibility(View.GONE);
-        edit_img.setVisibility(View.GONE);
-        edit_layout.setVisibility(View.GONE);
-        cancel_img.setVisibility(View.GONE);
-        cancel_layout.setVisibility(View.GONE);
+        logout_img.setVisibility(View.GONE);
+        logout_layout.setVisibility(View.GONE);
+
 
         back_img.setOnClickListener(this);
         back_layout.setOnClickListener(this);

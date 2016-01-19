@@ -17,6 +17,7 @@
         android:id="@+id/back_layout"
         android:layout_width="wrap_content"
         android:padding="10dp"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_height="wrap_content">
         <ImageView
@@ -38,30 +39,28 @@
         android:textColor="@color/white"/>
 
     <LinearLayout
-        android:id="@+id/edit_layout"
+        android:id="@+id/logout_layout"
         android:layout_width="wrap_content"
         android:padding="10dp"
+        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/edit_img"
+       <!-- <ImageView
+            android:id="@+id/logout_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_actionbar_edit"/>
+            android:src="@drawable/logout"/>-->
+
+        <TextView
+            android:id="@+id/logout_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/ic_actionbar_logout"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/cancel_layout"
-        android:layout_width="wrap_content"
-        android:padding="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/cancel_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_popup_cross"/>
-    </LinearLayout>
+
 
 </RelativeLayout>
 

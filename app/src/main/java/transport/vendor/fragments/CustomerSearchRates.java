@@ -67,7 +67,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
         rootView = inflater.inflate(R.layout.search_list, container, false);
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
         face = Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
-        HomeActivity.changeTitle("SEARCH RATES", false, false);
+        HomeActivity.changeTitle("SEARCH RATES", true, false);
 
         init();
 
@@ -136,9 +136,11 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
     }
 
     private void CallSearchRateAPI() {
-        // http://phphosting.osvin.net/JSKT/API/CustomerSearchRates.php
+        // http://phphosting.osvin.net/JSKT/API/rate_search.php?Origin_ZipCode=22026
         RequestParams params = new RequestParams();
 
+        //params.put("Origin_ZipCode",Constants.ZIP_CODE);
+        params.put("Origin_ZipCode","22026");
         Log.e("parameters", params.toString());
         Log.e("URL", Constants.CUST_SEARCH_RATE + "?" + params.toString());
         client.post(getActivity(), Constants.CUST_SEARCH_RATE, params, new JsonHttpResponseHandler() {
@@ -163,7 +165,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
                     if (response.getBoolean("ResponseCode")) {
 
                         searchList.clear();
-                        JSONArray data = response.getJSONArray("Data");
+                        JSONArray data = response.getJSONArray("Result");
                         for (int i = 0; i < data.length(); i++) {
 
                             HashMap<String, String> hashMap = new HashMap<String, String>();
@@ -181,11 +183,8 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
                             hashMap.put("Commodity", data.getJSONObject(i).getString("Commodity"));
                             hashMap.put("Remarks", data.getJSONObject(i).getString("Remarks"));
                             hashMap.put("IsActive", data.getJSONObject(i).getString("IsActive"));
-                            hashMap.put("IsDeleted", data.getJSONObject(i).getString("IsDeleted"));
-                            hashMap.put("Created_Date", data.getJSONObject(i).getString("Created_Date"));
-                            hashMap.put("CreatedBy", data.getJSONObject(i).getString("CreatedBy"));
-                            hashMap.put("Modified_Date", data.getJSONObject(i).getString("Modified_Date"));
-                            hashMap.put("ModifiedBy", data.getJSONObject(i).getString("ModifiedBy"));
+                            hashMap.put("ColorCode", data.getJSONObject(i).getString("ColorCode"));
+                            hashMap.put("StatusComments", data.getJSONObject(i).getString("StatusComments"));
 
                             searchList.add(hashMap);
                         }
@@ -303,6 +302,8 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
                 holder.destination_city = (TextView) convertView.findViewById(R.id.destination_city);
                 holder.availability = (TextView) convertView.findViewById(R.id.availability);
                 holder.terms_condition = (TextView) convertView.findViewById(R.id.terms_condition);
+                holder.dest_tv = (TextView) convertView.findViewById(R.id.dest_tv);
+                holder.origin_tv = (TextView) convertView.findViewById(R.id.origin_tv);
 
                 convertView.setTag(holder);
 
@@ -318,6 +319,8 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
             holder.destination_city.setTypeface(face);
             holder.availability.setTypeface(face);
             holder.terms_condition.setTypeface(face);
+            holder.dest_tv.setTypeface(face);
+            holder.origin_tv.setTypeface(face);
 
 
             holder.status_bt.setTag(position);
@@ -329,9 +332,22 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
 
             holder.destination_zipcode.setText(searchList.get(position).get("Dest_ZipCode"));
             holder.source_zipcode.setText(searchList.get(position).get("Origin_ZipCode"));
-            holder.source_city.setText(searchList.get(position).get("Origin_City"));
-            holder.destination_city.setText(searchList.get(position).get("Dest_City"));
+            holder.source_city.setText(searchList.get(position).get("Origin_City")+", "+
+                    searchList.get(position).get("Origin_State"));
+            holder.destination_city.setText(searchList.get(position).get("Dest_City")+", "+
+                    searchList.get(position).get("Dest_State"));
             holder.price.setText("$ "+searchList.get(position).get("Rate45FT"));
+
+            String colorCode = searchList.get(position).get("ColorCode");
+            String status = searchList.get(position).get("StatusComments");
+
+            if(colorCode.equalsIgnoreCase("GREEN")){
+            holder.availability.setText("Available");
+            }else if(colorCode.equalsIgnoreCase("RED")){
+                holder.availability.setText("Not Available");
+            } else if(colorCode.equalsIgnoreCase("YELLOW")){
+                holder.availability.setText("Call for rate");
+            }
 
             holder.route_bt.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -362,7 +378,7 @@ public class CustomerSearchRates  extends Fragment implements View.OnClickListen
 
         class ViewHolder {
             TextView source_zipcode, destination_zipcode, price,source_city,destination_city,
-                    availability, terms_condition;
+                    availability, terms_condition, origin_tv, dest_tv;
             Button status_bt, route_bt;
         }
 

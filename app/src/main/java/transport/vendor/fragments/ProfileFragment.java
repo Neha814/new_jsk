@@ -83,7 +83,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.test, container, false);
+        rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         face = Typeface.createFromAsset(getActivity().getAssets(), "Avenir-Book.otf");
         isConnected = NetConnection.checkInternetConnectionn(getActivity());
 

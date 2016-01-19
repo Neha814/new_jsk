@@ -25,6 +25,7 @@ public class Constants {
     // ************** Login *******************//
     public static String USER_ID;
     public static String ROLE_ID;
+    public static String NAME;
 
     //*************** SignUp *****************//
     public static String ROLE_ID_TO_SEND ;
@@ -61,9 +62,10 @@ public class Constants {
     public static String WORKORDER_LIST_API = BASE_URL +"WorkOrderList.php";
     public static String UPLOAD_POD_IMAGE = BASE_URL +"AddPODImage.php";
     public static String CONFIRM_APPT = BASE_URL +"Confirm_Appt.php";
-    public static String CUST_SEARCH_RATE = BASE_URL+"CustomerSearchRates.php";
+    public static String CUST_SEARCH_RATE = BASE_URL+"rate_search.php";
     public static String POD_IMAGES_LIST = BASE_URL+"ListPodImages.php";
     public static String CANCEL_APPT = BASE_URL +"confirm_delete.php";
+    public static String SEARCH_RATE = BASE_URL +"zip_search.php";
 
     // **************** work order list appt detail *********************//
 
@@ -84,6 +86,7 @@ public class Constants {
     public static double FromLng;
     public static double ToLat;
     public static double ToLng;
+    public static String ZIP_CODE;
 
     //********************** work order list ************************//
 

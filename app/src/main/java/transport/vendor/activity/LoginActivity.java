@@ -71,19 +71,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         LinearLayout back_layout = (LinearLayout) mToolbar.findViewById(R.id.back_layout);
         TextView title_tv = (TextView) mToolbar.findViewById(R.id.title_tv);
         ImageView back_img = (ImageView) mToolbar.findViewById(R.id.back_img);
-        ImageView edit_img = (ImageView) mToolbar.findViewById(R.id.edit_img);
+        /*ImageView edit_img = (ImageView) mToolbar.findViewById(R.id.edit_img);
         LinearLayout edit_layout = (LinearLayout) mToolbar.findViewById(R.id.edit_layout);
         ImageView cancel_img = (ImageView) mToolbar.findViewById(R.id.cancel_img);
-        LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);
+        LinearLayout cancel_layout = (LinearLayout) mToolbar.findViewById(R.id.cancel_layout);*/
+        TextView logout_img = (TextView) mToolbar.findViewById(R.id.logout_img);
+        LinearLayout logout_layout = (LinearLayout) mToolbar.findViewById(R.id.logout_layout);
 
         title_tv.setText("SIGN IN");
         title_tv.setTypeface(face);
         back_layout.setVisibility(View.GONE);
         back_img.setVisibility(View.GONE);
-        edit_img.setVisibility(View.GONE);
-        edit_layout.setVisibility(View.GONE);
-        cancel_img.setVisibility(View.GONE);
-        cancel_layout.setVisibility(View.GONE);
+        logout_img.setVisibility(View.GONE);
+        logout_layout.setVisibility(View.GONE);
+
 
         login_btn = (Button) findViewById(R.id.login_btn);
         email_edt = (EditText) findViewById(R.id.email_edt);
@@ -192,11 +193,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
                         String user_id = response.getString("userid");
                         String role_id = response.getString("roleid");
+                        String firstname = response.getString("firstName");
                         Constants.USER_ID = user_id;
                         Constants.ROLE_ID = role_id;
+                        Constants.NAME = firstname;
                         SharedPreferences.Editor e = sp.edit();
                         e.putString("user_id", user_id);
                         e.putString("role_id", role_id);
+                        e.putString("name", firstname);
                         e.commit();
 
 
